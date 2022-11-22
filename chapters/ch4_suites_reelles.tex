@@ -171,13 +171,13 @@
 
 \begin{graybox}
     \begin{definition}[]
-    \par Soit $(u_n)_{n \geqslant 0}$ une suite et $l \in \mathbb{R}$. On dit que la suite $(u_n)_{n \geqslant 0}$ tend vers $l$ si :
+    \par Soit $(u_n)_{n \geqslant 0}$ une suite et $\ell \in \mathbb{R}$. On dit que la suite $(u_n)_{n \geqslant 0}$ tend vers $l$ si :
     \begin{align*}
-    \forall \varepsilon > 0,\ \exists N \in \mathbb{N},\ \forall n \in \mathbb{N},\ |u_n - l| \leqslant \varepsilon
+    \forall \varepsilon > 0,\ \exists N \in \mathbb{N},\ \forall n \geqslant N,\ |u_n - \ell| \leqslant \varepsilon
     \end{align*}
     \par On note alors :
     \begin{align*}
-    u_n \xrightarrow[n \to +\infty]{}l \ \text{ ou }\lim_{n \to +\infty} u_n = l
+    u_n \xrightarrow[n \to +\infty]{}\ell \ \text{ ou }\lim_{n \to +\infty} u_n = \ell
     \end{align*}
 \end{definition}
 \end{graybox}
@@ -197,10 +197,10 @@
 
 
     \begin{remarque}
-    $|u_n - l| \leqslant \varepsilon$ revient à dire que $-\varepsilon \leqslant u_n - l \leqslant \varepsilon$
-    ou encore $l - \varepsilon \leqslant u_n \leqslant l + \varepsilon$
-    ou bien $u_n \in [l - \varepsilon, l + \varepsilon]$
-    Ainsi, dire que  $\displaystyle{\lim_{n \to +\infty} u_n = l}$ revient à dire que tout intervalle $[l-\varepsilon, l + \varepsilon]$ contient les termes de $(u_n)_{n \geqslant 0}$ à partir d'un certain rang.
+    $|u_n - \ell| \leqslant \varepsilon$ revient à dire que $-\varepsilon \leqslant u_n - \ell \leqslant \varepsilon$
+    ou encore $\ell - \varepsilon \leqslant u_n \leqslant \ell + \varepsilon$
+    ou bien $u_n \in [\ell - \varepsilon, \ell + \varepsilon]$
+    Ainsi, dire que  $\displaystyle{\lim_{n \to +\infty} u_n = \ell}$ revient à dire que tout intervalle $[\ell-\varepsilon, \ell + \varepsilon]$ contient les termes de $(u_n)_{n \geqslant 0}$ à partir d'un certain rang.
 \end{remarque}
 
 
@@ -213,9 +213,9 @@
 
     \begin{proof}
     Soit $\varepsilon > 0$ 
-	Si $l = 0$
+	Si $\ell = 0$
 	\begin{align*}
-	|u_n - l| \leqslant \varepsilon &\iff \left| \frac{1}{n+1} \right| \leqslant \varepsilon \\
+	|u_n - \ell| \leqslant \varepsilon &\iff \left| \frac{1}{n+1} \right| \leqslant \varepsilon \\
 	&\iff \frac{1}{n+1} \leqslant \varepsilon \\
 	&\iff \frac{1}{\varepsilon} \leqslant n + 1
 	\end{align*}
@@ -224,7 +224,7 @@
     \begin{align*}
         \forall n \geqslant N, n + 1 \geqslant N + 1 > \frac{1}{\varepsilon}
     \end{align*}
-    donc $n + 1 \geqslant \frac{1}{\varepsilon}$ et $|u_n - l| < \varepsilon$
+    donc $n + 1 \geqslant \frac{1}{\varepsilon}$ et $|u_n - \ell| < \varepsilon$
     On a bien vérifié que $\displaystyle{\lim_{n \to +\infty} u_n = 0}$
     \end{proof}
 
@@ -260,20 +260,20 @@
 
 \begin{graybox}
     \begin{definition}[]
-    On dit que $(u_n)_{n \geqslant 0}$ converge si $\exists l \in \mathbb{R} \backslash \{\pm\infty\}$ tel que $\displaystyle{\lim_{n \to +\infty} u_n = l}$
+    On dit que $(u_n)_{n \geqslant 0}$ converge si $\exists \ell \in \mathbb{R} \backslash \{\pm\infty\}$ tel que $\displaystyle{\lim_{n \to +\infty} u_n = \ell}$
     \begin{align*}
-        (u_n)_{n \geqslant 0} \text{ converge} \iff \exists l \in \mathbb{R}, \forall \varepsilon > 0, \exists N \in \mathbb{N}, \forall n \geqslant, \left|u_n - l\right| \leqslant \varepsilon
+        (u_n)_{n \geqslant 0} \text{ converge} \iff \exists \ell \in \mathbb{R}, \forall \varepsilon > 0, \exists N \in \mathbb{N}, \forall n \geqslant N, \left|u_n - \ell\right| \leqslant \varepsilon
     \end{align*}
     Sinon on dit que $(u_n)_{n \geqslant 0}$ diverge
     \begin{align*}
-        (u_n)_{n \geqslant 0} \text{ diverge } \iff \forall l \in \mathbb{R}, \exists \varepsilon > 0, \forall N \in \mathbb{N}, \exists n \geqslant N, \left|u_n - l\right| > \varepsilon
+        (u_n)_{n \geqslant 0} \text{ diverge } \iff \forall \ell \in \mathbb{R}, \exists \varepsilon > 0, \forall N \in \mathbb{N}, \exists n \geqslant N, \left|u_n - \ell \right| > \varepsilon
     \end{align*}
     \begin{align*}
-        (u_n)_{n \geqslant 0} \text{ ne converge pas vers l } &\iff \exists \varepsilon > 0, \forall N \in \mathbb{N}, \exists n \geqslant N, |u_n - l| > \varepsilon \\
-        &\iff \exists \varepsilon > 0, \{n \in \mathbb{N} \text{ tq } |u_n - l| > \varepsilon\} \\ &\text{ est un ensemble infini}
+        (u_n)_{n \geqslant 0} \text{ ne converge pas vers  }\ell &\iff \exists \varepsilon > 0, \forall N \in \mathbb{N}, \exists n \geqslant N, |u_n - \ell| > \varepsilon \\
+        &\iff \exists \varepsilon > 0, \{n \in \mathbb{N} \text{ tq } |u_n - \ell| > \varepsilon\} \\ &\text{ est un ensemble infini}
     \end{align*}
     \begin{align*}
-        \lim_{n \to +\infty} = l \iff \forall \varepsilon > 0 \{n \in \mathbb{N}, |u_n - l| > \varepsilon\} \text{ est fini }
+        \lim_{n \to +\infty} = \ell \iff \forall \varepsilon > 0 \{n \in \mathbb{N}, |u_n - \ell| > \varepsilon\} \text{ est fini }
     \end{align*}
 \end{definition}
 \end{graybox}
@@ -288,32 +288,32 @@
         \end{cases}
     \end{align*}
     Cette suite diverge. \\
-    En effet, soit $l \in \mathbb{R}$
+    En effet, soit $\ell \in \mathbb{R}$
     \begin{itemize}
-        \item Si $l < 0$
+        \item Si $\ell < 0$
         \begin{align*}
-            |u_n - l| = |1 - l| \geqslant 1
+            |u_n - \ell| = |1 - \ell| \geqslant 1
         \end{align*}
         quand n est pair et donc aucun nombre pair n vérifie
         \begin{align*}
-            |u_n - l| \leqslant \frac{1}{2}
+            |u_n - \ell| \leqslant \frac{1}{2}
         \end{align*}
-        et donc $(u_n)_{n \geqslant 0}$ ne converge pas vers $l$
+        et donc $(u_n)_{n \geqslant 0}$ ne converge pas vers $\ell$
         puisque l'ensemble  
         \begin{align*}
-            \left\{n \in \mathbb{N}, |u_n - l| > \frac{1}{2}\right\}
+            \left\{n \in \mathbb{N}, |u_n - \ell| > \frac{1}{2}\right\}
         \end{align*}
         est infini.
         
-        \item Si $l > 0$, de même $|u_n - l| \geqslant 1$ pour n impair et donc $(u_n)_{n \geqslant 0}$ ne converge pas vers $l$
+        \item Si $\ell > 0$, de même $|u_n - \ell| \geqslant 1$ pour n impair et donc $(u_n)_{n \geqslant 0}$ ne converge pas vers $\ell$
     \end{itemize}
 \end{exemple}
 
 \begin{graybox}
     \begin{theoreme}[Unicité de la limite]
-    La limite d'une suite convergente $(u_n)_{n \in \N}$ est unique. Pour $\forall (l_1, l_2) \in \R^2$
+    La limite d'une suite convergente $(u_n)_{n \in \N}$ est unique. Pour $\forall (\ell_1, \ell_2) \in \R^2$
     \begin{align*}
-        \text{Si } \lim_{n \to +\infty} u_n = l_1 \text{ et }\lim_{n \to +\infty} u_n = l_2 \text{ alors } l_1 = l_2
+        \text{Si } \lim_{n \to +\infty} u_n = \ell_1 \text{ et }\lim_{n \to +\infty} u_n = \ell_2 \text{ alors } \ell_1 = \ell_2
     \end{align*}
 \end{theoreme}
 \end{graybox}
@@ -321,19 +321,19 @@
 
 \begin{proof}
          \par Procédons à un raisonnement par l'absurde. \\
-         \par \noindent On suppose que $l_1 \neq l_2$. Posons $\varepsilon = \frac{1}{3} |l_1 - l_2| > 0$. \\
+         \par \noindent On suppose que $\ell_1 \neq \ell_2$. Posons $\varepsilon = \frac{1}{3} |l_1 - l_2| > 0$. \\
          D'après la définition de limite :
          \begin{align*}
-             &\exists N_1 \in \N, \forall n \geq N_1, |u_n - l_1| \leq \varepsilon \\
-             &\exists N_2 \in \N, \forall n \geq N_2, |u_n - l_2| \leq \varepsilon
+             &\exists N_1 \in \N, \forall n \geq N_1, |u_n - \ell_1| \leq \varepsilon \\
+             &\exists N_2 \in \N, \forall n \geq N_2, |u_n - \ell_2| \leq \varepsilon
          \end{align*}
          \par \noindent Posons $N = \max(N_1, N_2)$ Si $n \geq N$ alors :
          \begin{align*}
-             &|u_n - l_1| \leq \varepsilon \\
-             &|u_n - l_2| \leq \varepsilon
+             &|u_n - \ell_1| \leq \varepsilon \\
+             &|u_n - \ell_2| \leq \varepsilon
          \end{align*}
-         \par \noindent Alors $|l_1 - l_2| \leq |u_n - l_1| + |u_n + l_2| \leq \varepsilon + \varepsilon = 2\varepsilon = \frac{2}{3}|l_1 - l_2|$.
-    On en déduit $\frac{1}{3}|l_1 - l_2| \leq 0$, ce qui est absurde. Ainsi, on a montré que $l_1 = l_2$
+         \par \noindent Alors $|\ell_1 - \ell_2| \leq |u_n - \ell_1| + |u_n + \ell_2| \leq \varepsilon + \varepsilon = 2\varepsilon = \frac{2}{3}|\ell_1 - \ell_2|$.
+    On en déduit $\frac{1}{3}|\ell_1 - \ell_2| \leq 0$, ce qui est absurde. Ainsi, on a montré que $\ell_1 = \ell_2$
 \end{proof}
 
 \begin{graybox}
