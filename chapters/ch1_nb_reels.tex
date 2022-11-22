@@ -1,0 +1,244 @@
+\chapter{Nombres réels}
+
+\section{Les ensembles de nombres}
+
+Le premier ensemble de nombres est l'ensemble 
+\[ \N = \{0,1,2,\dots\} \] 
+de tous
+les \emph{entiers naturels}. Une variante est $\N^* = \{1,2,3,\dots \}$, l'ensemble des entiers naturels non nuls. L'ensemble $\N^*$ correspondant à l'ensemble $\N$ auquel on a enlevé $0$.
+
+Le second ensemble de nombres est l'ensemble
+\[ \Z = \{ \dots, -3,-2,-1,0,1,2,3, \dots \} \]
+de tous les \emph{entiers relatifs}. On définit de même $\Z^*$ comme l'ensemble $\Z$ auquel on a enlevé (privé de) $0$.
+
+L'ensemble $\Z$ est plus gros que $\N$. Ceci s'écrit en formule comme
+\[ \N \subset \Z .\]
+Le symbole $\subset$ est le symbole d'\emph{inclusion}, qui se lit «est inclus dans». Si $A$ et $B$ sont des ensembles, on écrit $A \subset B$ lorsque tout élément de $A$ est un élément de $B$. On a $\Z \not \subset \N$, c'est-à-dire que $\Z$ n'est pas inclus dans $\N$, puisque par exemple le nombre $-1$ est dans $\Z$ mais pas dans $\N$.
+
+Il faut faire attention à ne pas confondre le symbole $\subset$ avec le symbole $\in$ qui lui ressemble. Le symbole $\in$ se lit «appartient à». Par exemple, la formule « $n \in \N$ » se lit « $n$ appartient à $\N$ », c'est-à-dire que $n$ est l'un des entiers qui sont dans la liste $\{0,1,2,\dots,\}$.
+
+On a ainsi\footnote{A l'inverse, une formule comme \textcolor{red}{$5 \subset \N$} n'est ni vraie ni fausse, elle n'a \emph{pas de sens} - on l'écrit en rouge pour insister. Un correcteur lisant cette formule va entrer dans le mode \verb!syntax error!, ce qui est en général mauvais signe pour l'étudiant dont c'est la copie}
+\[ \N \subset \Z , \ \ \ \Z \not\subset \N \]
+\[ 3 \in \N , \ \ \ 3 \in \Z , \ \ \ -4 \in \Z, \ \ \, -4 \not\in \N .\]
+
+On continue notre visite du zoo des ensembles de nombres avec l'ensemble $\Q$ de tous les \emph{nombres rationnels}, c'est-à-dire de toutes les \emph{fractions}. Ainsi
+\[ \Q = \left\{ \textnormal{quotients de la forme } \frac{a}{b} \textnormal{ avec } a \in \Z,\ b \in \Z^* \right\}.\]
+(On a pris soin de préciser $b \in \Z^*$ et non $b \in \Z$ afin de ne pas diviser par $0$).
+
+\begin{remarque}
+	On aurait pu aussi définir $\Q$ en demandant $a \in \N$, $b \in \Z^*$. Vois-tu pourquoi ?
+\end{remarque}
+
+Cette définition de $\Q$ pose une difficulté : en effet, un même nombre rationnel peut être représenté par plusieurs fractions. Par exemple, on a $\frac 12 = \frac 24$. On peut décrire précisément quand cela arrive. En effet, si $a \in \Z$, $b \in \Z^*$, $a' \in \Z$, $b' \in \Z$, on a
+\[ \frac{a}{b} = \frac{a'}{b'} \textnormal{ si et seulement si } ab'=a'b .\]
+
+Les mathématiciens utilisent souvent l'expression «si et seulement si», que tu peux écrire «ssi». Il faut bien comprendre son sens. Quand on écrit
+\[ P \textnormal{ si et seulement si }Q ,\]
+cela veut dire deux choses à la fois. Tout d'abord,
+\[ \textnormal{ si }P\textnormal{ est vraie, alors }Q\textnormal{ est vraie},\]
+mais également
+\[ \textnormal{ si }Q\textnormal{ est vraie, alors }P\textnormal{ est vraie}.\]
+
+Il y a un ensemble de nombres qu'il ne faut pas confondre avec $\Q$, c'est l'ensemble $\D$ de tous les nombres décimaux. Un nombre \emph{décimal} est un nombre de la forme $\frac{a}{10^n}$ avec $a \in \Z$ et $n \in \N$. Un nombre décimal s'écrit avec une suite finie de chiffres à droite de la virgule.
+
+Par exemple le nombre $46,253$ est un nombre décimal car il peut s'écrire comme $\frac{46253}{10^3}$. Il est clair que tout nombre décimal est rationnel, c'est à dire que $\D \subset \Q$. Cette inclusion est \emph{stricte}, c'est-à-dire que $\D \not= \Q$. En effet, il existe des rationnels non décimaux, comme la fraction
+%jai changé le notsubset en not= psk ct pas ecrit comme ca dans le cours + ca pas de sens ici tu dis inclus apres pas inclus.Racem Grab
+\[ \frac{1}{3} = 0,\underbrace{333333333333333333333\dots}_{\textnormal{suite infinie de }3} \]
+Pour les mathématiciens, l'ensemble $\Q$ est plus important que l'ensemble $\D$; en effet ce dernier fait jouer un rôle privélégié au nombre $10$ sans justification autre que le fait que \emph{Homo Sapiens} possède $10$ doigts.
+
+On arrive maintenant à l'ensemble qui donne le nom à ce chapitre, l'ensemble $\R$ des nombres réels. Un nombre réel est un nombre comme par exemple
+\[ -75,2828746\dots \]
+qui s'écrit en mettant bout à bout
+\begin{itemize}
+	\item un signe $+$ ou $-$, que l'on sous-entend généralement lorsqu'il s'agit de $+$,
+	\item un nombre entier,
+	\item une virgule,
+	\item une suite finie ou infinie de chiffres après la virgule.
+\end{itemize}
+
+Comme pour les rationnels, une difficulté vient du fait qu'un même nombre réel peut avoir plusieurs telles écritures. On a ainsi
+\[ +0 = -0 = 3.5 = 3.50000 \] % jai modifié ca, ca me semble plus parlant comme ca si tu trouves pas tu peux remettre ton exemple ou alors dit moi et jle changerais
+\[ 1 = 0,\underbrace{99999999999999999999999999999999999\dots}_{\textnormal{suite infinie de }9} \]
+On n'insistera pas sur ces difficultés, qui seraient très problématiques si on voulait donner des \emph{preuves} des propositions de la section suivante. Tu peux aller lire l'article 
+\url{https://fr.wikipedia.org/wiki/Construction_des_nombres_r%C3%A9els}
+pour découvrir des façons plus efficaces que celle décrite ci-dessus d'introduire l'ensemble $\R$.
+
+\section{Opérations et relation d'ordre dans les réels}
+
+\`A l'école primaire, on apprend à ajouter, multiplier et comparer les entiers naturels. Ceci s'étend aux réels.
+
+\begin{graybox}
+	\begin{proposition}[Addition et multiplication sur $\R$]
+		On peut définir sur $\R$ une addition (notée $+$) et une multiplication (notée $\times$ ou $\cdot$) qui prolonge l'addition et la multiplication de $\N$ et vérifie les règles suivantes.
+		\begin{enumerate}
+			\item (Commutativité) pour tous $a$, $b$ dans $\R$, on a
+			\[ a+b=b+a \textnormal{ et } a \cdot b =b \cdot a.\]
+			\item (Associativité) pour tous $a$, $b$, $c$ dans $\R$, on a
+			\[ a+(b+c) = (a+b)+c \textnormal{ et } a \cdot (b \cdot c) = (a \cdot b) \cdot c .\]
+			\item (Distributivité) pour tous $a$, $b$, $c$, on a
+			\[ (a+b) \cdot c = a \cdot c + b \cdot c .\]
+			\item (Éléments neutres ou absorbants) pour tout $a$ dans $\R$, on a
+			\[ a+0 = a , \ \ a \cdot 1 =a , \ \ a \cdot 0 =0 .\]
+		\end{enumerate}
+	\end{proposition}
+\end{graybox}
+
+
+Démontrer la proposition serait fastidieux : il faudrait décrire un algorithme qui explique comment ajouter et multiplier deux nombres réels, puis vérifier toutes ces propriétés.
+
+
+\begin{graybox}
+	\begin{proposition}[Relation d'ordre sur $\R$]
+		On peut définir sur $\R$ une relation d'ordre, notée $\leq$, qui prolonge l'ordre de $\N$ et vérifie les règles suivantes.
+		\begin{enumerate}
+			\item (Réflexivité) pour tout $a$ dans $\R$, on a
+			\[ a \leq a .\]
+			\item (Antisymétrie) pour tous $a,b$ dans $\R$,
+			\[ \textnormal{ si } a \leq b \textnormal{ et } b \leq a, \textnormal{ alors } a=b. \]
+			\item (Transitivité) pour tous $a,b,c$ dans $\R$,
+			\[ \textnormal{ si } a \leq b \textnormal{ et } b \leq c, \textnormal{ alors } a \leq c. \]
+			\item (Ordre total) pour tous $a,b$ dans $\R$, on a
+			\[ a \leq b \textnormal{ ou}\footnote{pour les mathématiciens, le «ou» n'est pas exclusif, c'est-à-dire que «$P$ ou $Q$» veut dire: soit $P$, soit $Q$, soit à la fois $P$ et $Q$. Quand on dit «ou» dans la vie courante, c'est souvent implicitement exclusif. Ainsi un mathématicien pourra répondre «oui\space!» à des questions telles que «Est-ce une fille ou un garçon ?», «Fromage ou dessert ?», «Vous montez ou vous descendez ?»} b \leq a .\]
+			\item (Compatibilité avec l'addition) pour tous $a,b,c$ dans $\R$,
+			\[ \textnormal{ si } a \leq b \textnormal{ alors } a+c \leq b+c. \]
+			\item (Compatibilité avec la multiplication par un réel {\bfseries positif}) pour tous $a,b,c$ dans $\R$,
+			\begin{align*}
+				\textnormal{ si } a \leq b \textnormal{ et } \framebox{$c \geq 0$}, \textnormal{ alors } a\cdot c \leq b\cdot c.
+			\end{align*} 
+		\end{enumerate}
+	\end{proposition}
+\end{graybox}
+
+% Début : Raphaël Heng 16/09/22
+\section{Valeur absolue}
+
+\begin{graybox}
+	\begin{definition}[Valeur absolue]
+		Soit $x \in \R$, la valeur absolue, notée $|x|$ est définie ainsi :
+		\begin{align*}
+			\mid x \mid = \begin{cases}
+				x &\textnormal{ si } x \geq 0 \\
+				-x &\textnormal{ si } x < 0
+			\end{cases}
+		\end{align*}
+	\end{definition}
+\end{graybox}
+
+\begin{graybox}
+	\begin{proposition}
+		La valeur absolue vérifie les propriétés suivantes, pour $\forall$ a,b $\in \R$ :
+		\begin{enumerate}
+			\item $|a + b| \leq |a| + |b| \textnormal{ : \textbf{(Inégalité triangulaire)}}$
+			\item $|a \cdot b| = |a| \cdot |b|$
+			\item $|a - b| \geq |a| - |b| \textnormal{ :\textbf{(Inégalité triangulaire inverse)}}$
+			\item $|a|= \sqrt{a^2}$
+		\end{enumerate}
+	\end{proposition}
+\end{graybox}
+
+
+% Fin : Raphaël Heng 16/09/22
+
+%Debut : Racem Grab 16/09/2022
+
+\section{Intervalles de $\R$}
+Un intervalle est une partie de $\R$ (c'est-à-dire dans $\R$) sans "trou"
+
+\begin{graybox}
+	\begin{definition}[Intervalle]
+		Soit I $\subset \R$. On dit que I est un intervalle 
+		$$ \textnormal{Si } \forall (x, y) \in I^2, \textnormal{ alors } z \in I \textnormal{ et } z \in \R,\ x \leq z \leq y $$
+	\end{definition}
+\end{graybox}
+
+\begin{graybox}
+	\begin{proposition}[Intervalles de $\R$]
+		Les intervalles de $\R$ sont de type suivant :
+		\begin{itemize}
+			\item $\R$
+			\item $[a,+\infty[$ \textnormal{ou} $]a, +\infty[$
+			\item $[a,b]$ \textnormal{ou} $[a,b[$ \textnormal{ou} $]a,b[$ \textnormal{ou} $]a,b]$ \textnormal{(a, b)} $\in \R$  \textnormal{avec a < b} $\in \R$ 
+			%pour le < je suis pas sur jarrive pas a savoir si cest un inclus ou un < si tu peux me corriger stp merci.Racem : C'est bien un <, merci pour ton aide, Raphaël. Pas de soucis merci a toi aussi !
+			\item $]-\infty, a]$ \textnormal{ou} $]-\infty , a[$ \textnormal{avec a $\in \R$}
+			\item $\emptyset$, \textnormal{l'ensemble vide}
+			\item $\{ a \}$ \textnormal{où a} $\in \R$ \textbf{(un singleton)}
+		\end{itemize}
+		\medskip 
+		On a
+		\newline
+		$[a,b[$ = $\{x \in \R ~ tel ~ que ~ a \leq x < b \}$
+		\newline
+		$]-\infty, a]$=$\{ x \in \R ~ x \leq a \}$
+	\end{proposition}
+\end{graybox}
+
+
+\section{Borne inférieure, borne supérieure}
+
+Soit A $\subset \R$ une partie de $\R$ et m $\in \R$, un élément de $\R$
+\newline
+On dit que m est un majorant de A si
+\begin{align*}
+	\forall x \in A,\ x \leq m
+\end{align*}
+On dit que m est un minorant de A si
+\begin{align*}
+	\forall x \in A,\ x \geq m
+\end{align*}
+\noindent On dit qu'une partie de A $\subset \R$ est \textbf{majorée} si elle admet un \textbf{majorant}
+\newline 
+On dit qu'une partie de A $\subset \R$ est \textbf{minorée} si elle admet un \textbf{minorant}
+\newline 
+On dit qu'une partie de A $\subset \R$ est \textbf{bornée} si elle est \textbf{majorée et minorée}
+\newline
+%Fin Racem Grab 16/09/2022
+
+% Raphaël Heng 16/09/22
+
+\begin{graybox}
+	\begin{theoreme}[Théorème de la borne supérieure]
+		Toute partie $A \subset \R$ \textbf{non-vide} et \textbf{majorée} admet un \textbf{plus petit majorant} appelé la \textbf{borne supérieure} de A, notée : $\textnormal{sup}(A)$
+	\end{theoreme}
+\end{graybox}
+
+\begin{graybox}
+	\begin{theoreme}[Théorème de la borne inférieure]
+		Toute partie $A \subset \R$ \textbf{non-vide} et \textbf{minorée} admet un \textbf{plus grand minorant} appelé la \textbf{borne inférieure} de A, notée : $\textnormal{inf}(A)$
+	\end{theoreme}
+\end{graybox}
+
+\begin{graybox}
+	\begin{proposition}[]
+		Par convention : \\
+		\begin{itemize}
+			\item Si A une partie de $\R$ non-vide mais pas majorée : $\textnormal{sup}(A) = +\infty$.
+			\item Si A une partie de $\R$ non-vide mais pas minorée : $\textnormal{inf}(A) = -\infty$.
+		\end{itemize}
+	\end{proposition}
+\end{graybox}
+
+\begin{remarque}
+	Il n'y a pas de théorème sur les bornes dans $\Q$.
+\end{remarque}
+
+\begin{graybox}
+	\begin{proposition}[Caractérisation de la borne supérieure]
+		Soit $A \subset \R$ non-vide et $m$ un majorant de $A$. 
+		\begin{align*}
+			m = \textnormal{sup}(A) \iff \forall \varepsilon > 0, ]m - \varepsilon, m] \cap A \neq \emptyset
+		\end{align*}
+		$\varepsilon$ : \textnormal{Lettre grecque , "Epsilon" utilisée pour désigner un réel très petit.} %modification de nombre en réel.Racem
+		\newline
+		$\cap$ : \textnormal{désigne qu'il a une intersection entre deux parties, (éléments en communs)}     
+	\end{proposition}
+\end{graybox}
+
+\begin{exemple}
+	Si x $\in R$
+	\begin{itemize}
+		\item \textnormal{A = [0,2[} \textnormal{x} $\in$ \textnormal{A ssi x} $\geq$ \textnormal{0 et x < 2}
+		\item \textnormal{B = ]1,3[} \textnormal{x} $\in B$ \textnormal{ssi x > 1 et x <3}
+		\item \textnormal{A} $\cap$ \textnormal{B} \textnormal{ssi (x} $\geq$ \textnormal{0) et x > 2 ici et 1 < x (et x <3) donc A}$\cap$ \textnormal{B = ]1,2[} 
+	\end{itemize}
+\end{exemple}
+

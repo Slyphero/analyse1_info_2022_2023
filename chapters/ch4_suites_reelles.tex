@@ -1,0 +1,895 @@
+\chapter{Suites réelles}
+\section{Définitions}
+
+\begin{graybox}
+    \begin{definition}[Suite réelle]
+\par On appelle \textbf{suite réelle} une fonction de $\N \to \R$. On note $(u_n)_{n \in \N}$ la fonction $x \mapsto u_n$
+\end{definition}
+\end{graybox}
+
+\begin{exemple}
+\par On définit la suite $(u_n)_{n \in \N}$ par la formule 
+\begin{align*}
+    \forall n \in \N, u_n = 3n + 7
+\end{align*}
+
+\begin{itemize}
+    \item $u_0 = 7$
+    \item $u_1 = 10$
+    \item $u_2 = 13$
+\end{itemize}
+\end{exemple}
+
+\begin{remarque}
+\par On met des parenthèses pour parler de la suite dans son intégralité. On ne met pas de parenthèses pour parler d'un seul terme de la suite.
+\end{remarque}
+
+\begin{remarque}
+    \par On peut définir une suite par récurrence.
+\end{remarque}
+
+\begin{exemple}
+    \begin{align*}
+        \forall n \geqslant 1 :
+        \begin{cases}
+        u_0 = 2 \\
+        u_n = \frac{1}{n} + \frac{u_{n - 1}}{3}
+        \end{cases}
+    \end{align*}
+\end{exemple}
+
+\begin{remarque}
+    Le vocabulaire des fonctions s'applique aussi aux suites.
+\end{remarque}
+
+\begin{graybox}
+    \begin{definition}[Monotonie d'une suite]
+    \par Soit $(u_n)_{n \geqslant 0}$ une suite. 
+    \begin{itemize}
+        \item On dit que $(u_n)_{n  \geqslant 0}$ est \textbf{croissante} si $\forall n \in \mathbb{N}, u_n \leqslant u_{n + 1}$
+        \item On dit que $(u_n)_{n \geqslant 0}$ est \textbf{décroissante} si $\forall n \in \mathbb{N}, u_n \geqslant u_{n+1}$
+        \item $(u_n)_{n \geqslant 0}$ est \textbf{majorée} si $\exists M \in \mathbb{R}, \forall n \in \mathbb{N}, u_n \leqslant M$
+        \item $(u_n)_{n \geqslant 0}$ est \textbf{minorée} si $\exists m \in \mathbb{R}, \forall n \in \mathbb{N}, u_n \geqslant m$
+        \item $(u_n)_{n \geqslant 0}$ est \textbf{bornée} si elle est majorée et minorée $\iff \exists M \in \mathbb{R}, \forall n \in \mathbb{N}, |u_n| \leqslant M$
+    \end{itemize}
+\end{definition}
+\end{graybox}
+
+\begin{remarque}
+    \par Une suite $(u_n)_{n \geqslant 0}$ est croissante $\iff$ $\forall (m,n) \in \mathbb{N}^2, m \leqslant n \implies u_m \leqslant u_n$
+    On dit aussi que $(u_n)_{n \geqslant 0}$ est monotone si elle est croissante ou décroissante.
+\end{remarque}
+
+\begin{remarque}
+    \par L'ensemble d'indices est parfois $\mathbb{N}^*$ plutôt que $\mathbb{N}$, d'où la suite $(u_n)_{n \geqslant 1}$.
+    On peut aussi avoir $(u_n)_{n \geqslant 2}$. Les résultats du cours seront énoncés par des suites $(u_n)_{n \geqslant 0}$ mais aussi valables pour des suites $(u_n)_{n \geqslant 1}$
+\end{remarque}
+
+\begin{remarque}
+    \par Soit $P(x)$ une propriété qui dépend de $n \in \mathbb{N}$. On dit que $P(n)$ est vraie \textbf{à partir d'un certain rang}, si $\exists n_0 \in \mathbb{N}, \forall n \geqslant n_0$, $P(n)$ est vraie.
+\end{remarque}
+
+\begin{exemple}
+    \par Soit $(u_n)_{n \geqslant 0}$ définie par $\forall n \in \mathbb{N}, u_n = 2^n - 10n$
+    \begin{itemize}
+        \item $u_0 = 1$
+        \item $u_1 = -8$
+        \item $u_2 = -16$
+        \item $u_3 = -22$
+    \end{itemize}
+    \par La suite $(u_n)_{n \geqslant 0}$ n'est pas croissante. Mais elle est croissante à partir d'un certain rang.
+    \begin{align*}
+        \forall n \in \mathbb{N}, u_{n+1} - u_n &= 2^{n+1} - 10(n+1) - 2^n + 10n \\
+        &= u_{n+1} - u_n = 2 \cdot 2^n - 2^n - 10 \\
+        &= u_{n + 1} - u_n = 2^n - 10 \text{ qui est } \geqslant 0 \text{ pour } n \geqslant 4
+    \end{align*}
+\end{exemple}
+
+\begin{graybox}
+    \begin{proposition}[Propriétés des suites]
+    \par Soient $(u_n)_{n \geqslant 0} \text{ et } (v_n)_{n \geqslant 0}$ deux suites. On peut former :
+    \begin{itemize}
+        \item La somme : $(u_n + v_n)_{n \geqslant 0}$
+        \item Le produit : $(u_n v_n)_{n \geqslant 0}$
+        \item Pour $\lambda \in \mathbb{R}, (\lambda u_n)_{n \geqslant 0}$
+    \end{itemize}
+\end{proposition}
+\end{graybox}
+
+\subsection{Suites classiques}
+
+\begin{graybox}
+    \begin{proposition}[Suite arithmétique]
+    Suite arithmétique de progression $r \in \R$ donnée par $u_0 \in \mathbb{R}$ est la relation de récurrence $u_{n+1} = u_n + r, \forall n \in \mathbb{N}$. On a alors pour tout $n \in \mathbb{N}$
+    \begin{align*}
+        u_n = u_0 + nr
+    \end{align*}
+    On peut aussi calculer :
+    \begin{align*}
+        \sum_{k = 0}^{n} u_k &= \sum_{k=0}^{n} (u_0 + kr) \\
+        &= (n+1) u_0 + r\sum_{k=0}^{n}k \\
+        &= (n+1)u_0 + r \frac{n(n+1)}{2}
+    \end{align*}
+\end{proposition}
+\end{graybox}
+
+\begin{graybox}
+    \begin{proposition}[Suite géométrique]
+    Suite géométrique de raison $q \in \R^*$ donnée par $u_0 \in \mathbb{R}$ et la relation de récurrence $u_{n+1} = q u_n, \forall n \in \mathbb{N}$
+	       On a alors $\forall n \in \mathbb{N}, u_n = u_0 q^n$
+	       On peut aussi calculer :
+        	\begin{align*}
+        	\sum_{k=0}^{n}u_k &= \sum_{k=0}^{n} u_0 q^k \\
+        					  &= u_0 \sum_{k=0}^{n}q^k	
+        	\end{align*}        
+            Sachant que : 
+            \begin{align*}
+                	\sum_{k=0}^{n} q^k = \frac{1 - q^{n+1}}{1 - q}, \ q\neq 1
+            \end{align*}
+            On a :
+            	\begin{align*}
+            	&\text{Si }q\neq 1 :  \sum_{k=0}^{n}u_k = u_0 \frac{1 - q^{n+1}}{1 - q} \\
+            	&\text{Si } q = 1 : \sum_{k=0}^{n}u_k = (n+1)u_0
+            	\end{align*}
+\end{proposition}
+\end{graybox}
+
+\begin{graybox}
+    \begin{proposition}[Suite arithmético-géométrique]
+    Suites arithmético-géométrique de progression $r \in \mathbb{R}$ et de raison $q \in \mathbb{R^*}$ donnée par $u_0 \in \mathbb{R}$ et $\forall n \in \mathbb{N}, u_{n+1} = qu_n + r$ Comment calculer $u_n$ ?
+        \begin{itemize}
+            \item Si $q = 1$ c'est une suite arithmétique
+            \item Si $q \neq 1$, on cherche le réel $a$ tel que $a = q a + r$ et on regarde la suite $(u_n - a)_{n \geqslant 0}$
+            	 \begin{align*}
+                	 a = qa + r &\iff a - qa = r \\
+                	            &\iff a = \frac{r}{1 - q} \text{ (Possible 
+                 car } q\neq 1)
+              \end{align*} 
+              
+              $\forall n \in \N$ :
+              	\begin{align*}
+            	u_{n+1} &= qu_n + r \\
+            	u_{n+1} - a &= qu_n + r - a \\
+            	v_{n+1} &= q(v_n + a) + r - a \\
+            	        &= qv_n + \underbrace{qa + r - a}_{=0}
+            	\end{align*}
+             Ainsi $(v_n)_{n \geq 0}$ est une suite géométrique de raison $q$, donc $\forall n \in \N$
+             	\begin{align*}
+            	v_n &= v_0 q^n \\
+            	    &= (u_0 - a) q^n
+            	\end{align*}
+              et 
+                  \begin{align*}
+                    u_n &= v_n + a \\
+                    u_n &= a + (u_0 - a)q^n
+                    \end{align*}
+        \end{itemize}   
+\end{proposition}
+\end{graybox}
+
+\section{Convergence d'une suite}
+
+\begin{graybox}
+    \begin{definition}[]
+    \par Soit $(u_n)_{n \geqslant 0}$ une suite et $l \in \mathbb{R}$. On dit que la suite $(u_n)_{n \geqslant 0}$ tend vers $l$ si :
+    \begin{align*}
+    \forall \varepsilon > 0,\ \exists N \in \mathbb{N},\ \forall n \in \mathbb{N},\ |u_n - l| \leqslant \varepsilon
+    \end{align*}
+    \par On note alors :
+    \begin{align*}
+    u_n \xrightarrow[n \to +\infty]{}l \ \text{ ou }\lim_{n \to +\infty} u_n = l
+    \end{align*}
+\end{definition}
+\end{graybox}
+
+
+
+    \begin{remarque}
+    $\varepsilon$ : epsilon s'utilise pour un réel > 0 petit
+\end{remarque}
+
+
+
+    \begin{remarque}
+    La valeur de N dépend de $\varepsilon$ car le $\exists$ vient après le $\forall$
+\end{remarque}
+
+
+
+    \begin{remarque}
+    $|u_n - l| \leqslant \varepsilon$ revient à dire que $-\varepsilon \leqslant u_n - l \leqslant \varepsilon$
+    ou encore $l - \varepsilon \leqslant u_n \leqslant l + \varepsilon$
+    ou bien $u_n \in [l - \varepsilon, l + \varepsilon]$
+    Ainsi, dire que  $\displaystyle{\lim_{n \to +\infty} u_n = l}$ revient à dire que tout intervalle $[l-\varepsilon, l + \varepsilon]$ contient les termes de $(u_n)_{n \geqslant 0}$ à partir d'un certain rang.
+\end{remarque}
+
+
+
+    \begin{exemple}
+    La suite $(u_n)_{n \geqslant 0}$ définie par $u_n = \frac{1}{n+1}, \forall n \in \mathbb{N}$ tend vers 0.
+\end{exemple}
+
+
+
+    \begin{proof}
+    Soit $\varepsilon > 0$ 
+	Si $l = 0$
+	\begin{align*}
+	|u_n - l| \leqslant \varepsilon &\iff \left| \frac{1}{n+1} \right| \leqslant \varepsilon \\
+	&\iff \frac{1}{n+1} \leqslant \varepsilon \\
+	&\iff \frac{1}{\varepsilon} \leqslant n + 1
+	\end{align*}
+    Posons $N = E(\frac{1}{\varepsilon})$ alors $N \leqslant \frac{1}{\varepsilon} < N + 1$
+    et alors : 
+    \begin{align*}
+        \forall n \geqslant N, n + 1 \geqslant N + 1 > \frac{1}{\varepsilon}
+    \end{align*}
+    donc $n + 1 \geqslant \frac{1}{\varepsilon}$ et $|u_n - l| < \varepsilon$
+    On a bien vérifié que $\displaystyle{\lim_{n \to +\infty} u_n = 0}$
+    \end{proof}
+
+
+    \begin{remarque}
+    Pour démontrer une assertion de type $\forall \varepsilon > 0 \ldots$ on commence par "Soit $\varepsilon > 0$" 
+\end{remarque}
+
+
+
+    \begin{exemple}
+    Soit $(u_n)_{n \geqslant 0}$ définie par :
+    \begin{align*}
+        u_n =
+        \begin{cases}
+            0 \ &\text{ si n pair } \\
+            \frac{1}{n} \ &\text{ si n impair}
+        \end{cases}
+    \end{align*}
+    La suite tend vers 0
+    \begin{proof}
+        Soit $\varepsilon > 0$
+        Posons : $N = E \left(\frac{1}{\varepsilon} \right) + 1$, alors $\frac{1}{\varepsilon} \leqslant N$
+        \\
+        Soit $n \geqslant N$
+        \begin{itemize}
+            \item Si n est pair : $\left| u_n - 0 \right| = 0 < \varepsilon$
+            \item Si n est impair : $\left|u_n - 0 \right| = \frac{1}{n} < \frac{1}{N} \leqslant \varepsilon$
+        \end{itemize}
+        Et donc $\displaystyle{\lim_{n \to +\infty} u_n = 0}$
+    \end{proof}
+\end{exemple}
+
+\begin{graybox}
+    \begin{definition}[]
+    On dit que $(u_n)_{n \geqslant 0}$ converge si $\exists l \in \mathbb{R} \backslash \{\pm\infty\}$ tel que $\displaystyle{\lim_{n \to +\infty} u_n = l}$
+    \begin{align*}
+        (u_n)_{n \geqslant 0} \text{ converge} \iff \exists l \in \mathbb{R}, \forall \varepsilon > 0, \exists N \in \mathbb{N}, \forall n \geqslant, \left|u_n - l\right| \leqslant \varepsilon
+    \end{align*}
+    Sinon on dit que $(u_n)_{n \geqslant 0}$ diverge
+    \begin{align*}
+        (u_n)_{n \geqslant 0} \text{ diverge } \iff \forall l \in \mathbb{R}, \exists \varepsilon > 0, \forall N \in \mathbb{N}, \exists n \geqslant N, \left|u_n - l\right| > \varepsilon
+    \end{align*}
+    \begin{align*}
+        (u_n)_{n \geqslant 0} \text{ ne converge pas vers l } &\iff \exists \varepsilon > 0, \forall N \in \mathbb{N}, \exists n \geqslant N, |u_n - l| > \varepsilon \\
+        &\iff \exists \varepsilon > 0, \{n \in \mathbb{N} \text{ tq } |u_n - l| > \varepsilon\} \\ &\text{ est un ensemble infini}
+    \end{align*}
+    \begin{align*}
+        \lim_{n \to +\infty} = l \iff \forall \varepsilon > 0 \{n \in \mathbb{N}, |u_n - l| > \varepsilon\} \text{ est fini }
+    \end{align*}
+\end{definition}
+\end{graybox}
+
+\begin{exemple}
+    Soit $(u_n)_{n \geqslant 0}$ définie par 
+    \begin{align*}
+        u_n = (-1)^n =
+        \begin{cases}
+        1 &\text{ si n pair} \\
+        -1 &\text{ si n impair}
+        \end{cases}
+    \end{align*}
+    Cette suite diverge. \\
+    En effet, soit $l \in \mathbb{R}$
+    \begin{itemize}
+        \item Si $l < 0$
+        \begin{align*}
+            |u_n - l| = |1 - l| \geqslant 1
+        \end{align*}
+        quand n est pair et donc aucun nombre pair n vérifie
+        \begin{align*}
+            |u_n - l| \leqslant \frac{1}{2}
+        \end{align*}
+        et donc $(u_n)_{n \geqslant 0}$ ne converge pas vers $l$
+        puisque l'ensemble  
+        \begin{align*}
+            \left\{n \in \mathbb{N}, |u_n - l| > \frac{1}{2}\right\}
+        \end{align*}
+        est infini.
+        
+        \item Si $l > 0$, de même $|u_n - l| \geqslant 1$ pour n impair et donc $(u_n)_{n \geqslant 0}$ ne converge pas vers $l$
+    \end{itemize}
+\end{exemple}
+
+\begin{graybox}
+    \begin{theoreme}[Unicité de la limite]
+    La limite d'une suite convergente $(u_n)_{n \in \N}$ est unique. Pour $\forall (l_1, l_2) \in \R^2$
+    \begin{align*}
+        \text{Si } \lim_{n \to +\infty} u_n = l_1 \text{ et }\lim_{n \to +\infty} u_n = l_2 \text{ alors } l_1 = l_2
+    \end{align*}
+\end{theoreme}
+\end{graybox}
+
+
+\begin{proof}
+         \par Procédons à un raisonnement par l'absurde. \\
+         \par \noindent On suppose que $l_1 \neq l_2$. Posons $\varepsilon = \frac{1}{3} |l_1 - l_2| > 0$. \\
+         D'après la définition de limite :
+         \begin{align*}
+             &\exists N_1 \in \N, \forall n \geq N_1, |u_n - l_1| \leq \varepsilon \\
+             &\exists N_2 \in \N, \forall n \geq N_2, |u_n - l_2| \leq \varepsilon
+         \end{align*}
+         \par \noindent Posons $N = \max(N_1, N_2)$ Si $n \geq N$ alors :
+         \begin{align*}
+             &|u_n - l_1| \leq \varepsilon \\
+             &|u_n - l_2| \leq \varepsilon
+         \end{align*}
+         \par \noindent Alors $|l_1 - l_2| \leq |u_n - l_1| + |u_n + l_2| \leq \varepsilon + \varepsilon = 2\varepsilon = \frac{2}{3}|l_1 - l_2|$.
+    On en déduit $\frac{1}{3}|l_1 - l_2| \leq 0$, ce qui est absurde. Ainsi, on a montré que $l_1 = l_2$
+\end{proof}
+
+\begin{graybox}
+    \begin{theoreme}[]
+    Toute suite convergente est bornée.
+\end{theoreme}
+\end{graybox}
+
+\begin{proof}
+        \par \noindent Supposons qu'une suite $(u_n)_{n \geq 0}$ converge vers $\ell \in \R$. 
+        \par \noindent On applique la définition de convergence avec $\varepsilon = 1$
+        \begin{align*}
+            \exists N \in \N, \forall n \geq N, |u_n - \ell| \leq 1 \vee \ell - 1 \leq u_n \leq \ell + 1
+        \end{align*}
+        \par \noindent Posons $M = \max(u_0, u_1, \ldots, u_{N - 1}, \ell + 1)$ et $m = \min(u_0, u_1, \ldots, u_{N -1}, \ell - 1)$.
+        \begin{align*}
+            &\forall n \in \N \\
+            &\textnormal{Si } n < N, m \leq u_n \leq M \\
+            &\textnormal{Si } n > N, m \leq \ell - 1 \leq u_n \leq \ell + 1 \leq M
+        \end{align*}
+        $(u_n)_{n \geq 0}$ est majorée par $M$ et minorée par $m$, elle est donc bornée.
+    \end{proof}
+
+\begin{remarque}
+    La réciproque n'est pas vraie, il existe des suites bornées non convergentes comme par exemple : $u_n = (-1)^{n}$
+\end{remarque}
+
+\subsection{Opérations sur les suites convergentes}
+
+\begin{graybox}
+    \begin{theoreme}[]
+    \par \noindent Soient $(u_n)_{n \geq 0}$ et $(v_n)_{n \geq 0}$ deux suites convergentes. \\
+    On suppose que
+    \begin{align*}
+        \lim_{n \to +\infty} u_n = \ell_1, \lim_{n \to +\infty} v_n = \ell_2, (\ell_1, \ell_2) \in \R^2
+    \end{align*}
+    Pour $(\alpha, \beta) \in \R^2$, $(\alpha u_n + \beta v_n)_{n \geq 0}$ converge vers $\alpha \ell_1 + \beta \ell_2$.
+\end{theoreme}
+\end{graybox}
+
+\begin{proof}
+        Soit $\varepsilon > 0$ \\
+        Posons : 
+        \begin{align*}
+            \varepsilon ' = \frac{\varepsilon}{|\alpha| + |\beta|} > 0, \textnormal{ avec } |\alpha| + |\beta| > 0
+        \end{align*}
+        \par \noindent Par définition de la limite :
+        \begin{align*}
+            &\exists N_1 \in \N, \forall n \geq N_1, |u_n - \ell_1| \leq \varepsilon' \\
+            &\exists N_2 \in \N, \forall n \geq N_2, |v_n - \ell_2| \leq \varepsilon'
+        \end{align*}
+        Posons $N = \max(N_1, N_2)$. Si $n \geq N$, alors :
+        \begin{align*}
+            |u_n - \ell_1| \leq \varepsilon' \textnormal{ et } |v_n - \ell_2| \leq \varepsilon'
+        \end{align*}
+        Alors
+        \begin{align*}
+        |\alpha u_n + \beta v_n - (\alpha \ell_1 + \beta \ell_2)| &= |\alpha(u_n - \ell_1) + \beta(v_n - \ell_2)| \\
+        & \leq |\alpha| |u_n - \ell_1| + |\beta| |v_n - \ell_2| \\
+        &\leq (|\alpha| + |\beta|)\varepsilon' = \varepsilon 
+        \end{align*}
+        On a montré que $\alpha u_n + \beta v_n$ converge vers $\alpha \ell_1 + \beta \ell_2$.
+    \end{proof}
+
+\begin{remarque}
+    En particulier : 
+    \begin{align*}
+        (u_n)_{n \geq 0} \textnormal{ convergente et } (v_n)_{n \geq 0} \textnormal{ convergente } \implies (u_n + v_n)_{n \geq 0} \textnormal{ convergente} 
+    \end{align*}
+    La réciproque est fausse : \\
+    $u_n = n \textnormal{ divergente}$ et $v_n = -n \textnormal{ divergente}$ mais $u_n + v_n = 0$ convergente.
+\end{remarque}
+
+\begin{graybox}
+    \begin{theoreme}[]
+    Soient $(u_n)_{n \geq 0}$ et $(v_n)_{n \geq 0}$ deux suites convergentes. On suppose que :
+    \begin{align*}
+        \lim_{n \to +\infty} u_n = \ell_1, \lim_{n \to +\infty} v_n = \ell_2
+    \end{align*}
+    Alors la suite $(u_n v_n)_{n \geq 0}$ converge vers $\ell_1 \ell_2$
+\end{theoreme}
+\end{graybox}
+
+\begin{proof}
+        Comme $(u_n)_{n \geq 0}$ converge, elle est bornée. 
+        \begin{align*}
+            \exists M \in \R, \forall n \in \N, |u_n| \leq M
+        \end{align*}
+        Soit $\varepsilon > 0$. \\
+        Posons
+        \begin{align*}
+            \varepsilon' = \frac{\varepsilon}{M + |\ell_2|} > 0
+        \end{align*}
+        Par définition de la limite 
+        \begin{align*}
+            &\exists N_1, \forall n \geq N_1, |u_n - \ell_1| \leq \varepsilon' \\
+            &\exists N_2, \forall n \geq N_2, |v_n - \ell_2| \leq \varepsilon'  
+        \end{align*}
+        Posons $N = \max(N_1, N_2)$. Si $n \geq N$ alors 
+        \begin{align*}
+            |u_n - \ell_1| \leq \varepsilon' \textnormal{ et } |v_n - \ell_2| \leq \varepsilon'
+        \end{align*}
+        Par le calcul préliminaire :
+        \begin{align*}
+            |u_n v_n - \ell_1 \ell_2| < \varepsilon' (M + |\ell_2|) = \varepsilon
+        \end{align*}
+    \end{proof}
+
+\begin{graybox}
+    \begin{theoreme}[]
+    Soit $(u_n)_{n \geq 0}$ une suite qui ne s'annule pas et qui converge vers $\ell \neq 0$. Alors la suite $\left(\frac{1}{u_n}\right)_{n \geq 0}$ converge vers $\frac{1}{\ell}$
+\end{theoreme} 
+\end{graybox}
+
+\begin{proof}
+        Soit $\varepsilon > 0$ \\
+        On pose $\varepsilon' = \frac{|\ell|^2}{2} \varepsilon > 0$ \\
+        Comme $u_n \xrightarrow[n \to +\infty]{} \ell, \exists N_1, \forall n \geq N_1, |u_n - \ell| \leq \varepsilon$\\
+        Par ailleurs, posons $\varepsilon'' = \frac{|\ell|}{2} > 0$ \\
+        Comme $u_n \xrightarrow[n  \to + \infty]{} \ell, \exists N_2, \forall n \geq N_2, |u_n - \ell| \leq \varepsilon''$ implique $|u_n| \geq |\ell| - |u_n - \ell| \geq |\ell| - \frac{|\ell|}{2} = \frac{|\ell|}{2}$ \\
+        Soit $N = \max(N_1, N_2)$ \\
+        Si $n \geq N, |u_n - \ell| \leq \varepsilon'$ et $|u_n| \geq \frac{|\ell|}{2}$, alors : 
+        \begin{align*}
+            \left| \frac{1}{u_n} - \frac{1}{\ell} \right| = \frac{|u_n - \ell|}{|u_n| - |\ell|} \leq \frac{\varepsilon'}{|\ell|\frac{|\ell|}{2}} = \frac{2 \varepsilon'}{|\ell|^2} = \varepsilon
+        \end{align*}
+        On a montré que $\left( \frac{1}{u_n} \right)_{n \geq 0}$ converge vers $\frac{1}{\ell}$
+\end{proof}
+
+\begin{remarque}~
+    \begin{itemize}
+    \item On peut avoir $u_n > 0$ est $\displaystyle{\lim_{n \to +\infty} u_n = 0}$ exemple : $u_n = \frac{1}{n}$. 
+    \item Si $\displaystyle{\lim_{n \to +\infty} u_n > 0}$ alors $u_n > 0$ à partir d'un certain rang
+    \end{itemize}
+\end{remarque}
+
+\subsection{Suites et inégalités}
+
+\par On peut passer à la limite dans les inégalités larges.
+
+\begin{graybox}
+    \begin{theoreme}[]
+    Soient $(u_n)_{n \geq 0}$ et $(v_n)_{n \geq 0}$ deux suites convergentes et telle que $\forall n \in \N, u_n \leq v_n$. Alors
+    \begin{align*}
+        \lim_{n \to +\infty} u_n \leq \lim_{n \to +\infty} v_n
+    \end{align*}
+\end{theoreme}
+\end{graybox}
+
+\begin{proof}
+    Posons 
+    \begin{align*}
+        \ell_1 = \lim_{n \to +\infty} u_n \\
+        \ell_2 = \lim_{n \to +\infty} v_n
+    \end{align*}
+    On veut montrer $\ell_1 \leq \ell_2$. 
+    On raisonne par l'absurde en supposant que $\ell_2 < \ell_1$.
+    \\
+    Posons :
+    \begin{align*}
+        \varepsilon = \frac{\ell_1 - \ell_2}{3} > 0
+    \end{align*}
+    On a $\ell_2 + \varepsilon < \ell_1 - \varepsilon$.
+    \\
+    Comme $u_n \xrightarrow[]{} \ell_1, \exists N_1, \forall n \geq N_1, |u_n - \ell_1| \leq \varepsilon$.
+    \\
+    Comme $v_n \xrightarrow[]{} \ell_2, \exists N_2, \forall n \geq N_2, |v_n - \ell_2| \leq \varepsilon$.
+    \\
+    Soit $n \leq \max(N_1, N_2)$, alors :
+    \begin{align*}
+        &|u_n - \ell_1| \leq \varepsilon \textnormal{ donc } u_n \geq \ell_1 - \varepsilon \\
+        &|v_n - \ell_2| \leq \varepsilon \textnormal{ donc } v_n \leq \ell_2 + \varepsilon
+    \end{align*}
+    Alors $v_n \leq \ell_2 + \varepsilon < \ell_1 - \varepsilon \leq u_n$ donc $v_n < u_n$ il y a donc une contradiction.
+\end{proof}
+
+\begin{remarque}
+    Les inégalités strictes deviennent larges à la limite.
+\end{remarque}
+
+\begin{exemple}
+    $n \geq 1, u_n = \frac{1}{2n}, v_n = \frac{1}{n}, \forall n \in \N, u_n < v_n$ et on a : 
+    \begin{align*}
+        \lim_{n \to +\infty} u_n = 0 = \lim_{n \to +\infty} v_n
+    \end{align*}
+\end{exemple}
+
+\begin{graybox}
+    \begin{corollaire}[]
+    Si $(u_n)_{n \geq 0}$ converge vers $\ell$
+    \begin{enumerate}
+        \item Si $\forall n \in \N, u_n \leq M$, alors $\ell \leq M$
+        \item Si $\forall n \in \N, u_n \geq m$, alors $\ell \geq m$
+    \end{enumerate}
+\end{corollaire}
+\end{graybox}
+
+\begin{proof}
+    On applique le théorème au cas où une des suites est constante.
+\end{proof}
+
+\begin{theoreme}[Théorème des gendarmes]
+    Soient $(u_n)_{n \geq 0}, (v_n)_{n \geq 0}, (w_n)_{n \geq 0}$ des suites. \\
+    On suppose que 
+    \begin{enumerate}
+        \item $\forall n \in \N, u_n \leq v_n \leq w_n$
+        \item $\displaystyle{\lim_{n \to +\infty} u_n = \lim_{n \to + \infty} v_n = \ell}$
+    \end{enumerate}
+    Alors $\displaystyle{\lim_{n \to +\infty} v_n = \ell}$
+\end{theoreme}
+
+\begin{proof}
+    Soit $\varepsilon > 0$. \\
+    $\exists N_1, \forall n \geq N_1, \ell - \varepsilon \leq u_n \leq \ell + \varepsilon$\\
+    $\exists N_2, \forall n \geq N_2, \ell - \varepsilon \leq w_n \leq \ell + \varepsilon$ \\
+    Soit $N = \max{(N_1, N_2)}$ \\
+    Si $n \geq N$ $\ell - \varepsilon \leq v_n \leq \ell + \varepsilon$
+\end{proof}
+
+\begin{exemple}
+    Soit $v_n = \frac{\sin{n}}{n}$ pour $n \geq 1$.
+    On a pour tout $n \in \N^*$ :
+    \begin{align*}
+        -\frac{1}{n} \leq \frac{\sin{n}}{n} \leq \frac{1}{n}
+    \end{align*}
+    Comme $\displaystyle{\lim_{n \to +\infty} -\frac{1}{n} = \frac{1}{n} = 0}$.
+    \\
+    Par le théorème des gendarmes, on en conclut que $\displaystyle{\lim_{n \to +\infty} \frac{\sin{n}}{n} = 0}$
+\end{exemple}
+
+\subsection{Convergence et monotonie}
+Il existe : 
+\begin{itemize}
+    \item des suites monotones non convergentes
+    \begin{exemple}
+        $u_n = n$
+    \end{exemple}
+    
+    \item des suites convergentes non monotones
+    \begin{exemple}
+        $v_n = \frac{(-1)^n}{n}$
+    \end{exemple}
+\end{itemize}
+
+\begin{graybox}
+    \begin{theoreme}[]
+    Toute suite croissante majorée converge. 
+    \\
+    De même, toute suite décroissante minorée converge.
+\end{theoreme}
+\end{graybox}
+
+\begin{remarque}
+    Soit $(u_n)_{n \geq 0}$ une suite croissante majorée. 
+    La preuve (hors-programme) consiste à montrer que $(u_n)_{n \geq 0}$ converge vers la borne supérieure : $\underbrace{\forall n \in \N, u_n \leq v_n \leq w_n.}_{< +\infty \textnormal{ car }(u_n)_{n \geq 0} \textnormal{ est majorée }}$
+\end{remarque}
+
+\begin{graybox}
+    \begin{theoreme}[Théorème des suites adjacentes]
+    Soient $(u_n)_{n \geq 0}$ et $(v_n)_{n \geq 0}$ deux suites telles que :
+    \begin{enumerate}
+        \item $(u_n)_{n \geq 0}$ est croissante
+        \item $(v_n)_{n \geq 0}$ est décroissante
+        \item $(v_n - u_n)_{n \geq 0}$ converge vers 0.
+    \end{enumerate}
+    Alors $(u_n)_{n \geq 0} \textnormal{ et } (v_n)_{n \geq 0}$ convergent vers la même limite $\ell$ et $\forall n \in \N, u_n \leq \ell \leq v_n$.
+\end{theoreme}
+\end{graybox}
+
+\begin{proof}
+    Posons $w_n = v_n - u_n$. 
+    \\
+    La suite $(w_n)_{n \geq 0}$ tend vers 0 et est décroissante.
+    \\
+    Ceci implique $\forall n \in \N, w_n \geq 0$, c'est-à-dire $u_n \leq v_n$.
+    \\
+    On a $\forall n \in \N, u_0 \leq u_n \leq v_n \leq v_0$.
+    \\
+    La suite $(u_n)_{n \geq 0}$ est croissante et majorée par $v_0$, donc elle converge.
+    \\
+    La suite $(v_n)_{n \geq 0}$ est décroissante et minorée par $u_0$, donc elle converge.
+    \\
+    Posons : 
+    \begin{align*}
+        \lim_{n \to +\infty} u_n &= \ell_1 & \lim_{n \to +\infty} v_n &= \ell_2
+    \end{align*}
+    On a $\displaystyle{\lim_{n \to +\infty} w_n = 0 = \ell_2 - \ell_1}$, alors $\ell_2 = \ell_1$
+    \\
+    $\forall n \in \N$, on a :
+    \begin{itemize}
+        \item $u_n \leq \ell_1$ car $(u_n)$ est croissante
+        \item $v_n \geq \ell_2$ car $(v_n)$ est décroissante
+    \end{itemize}
+\end{proof}
+
+\begin{remarque}
+    Si on suppose de plus que $(u_n)_{n \geq 0}$ et $(v_n)_{n \geq 0}$ convergent, on peut écrire :
+    \begin{align*}
+        &\lim_{n \to +\infty} (v_n - u_n) = \lim_{n \to +\infty} v_n - \lim_{n \to +\infty} u_n = 0 \\
+        &\lim_{n \to +\infty} u_n = \lim_{n \to +\infty} v_n 
+    \end{align*}
+\end{remarque}
+
+\begin{exemple}
+    $u_n = n$ et $v_n = n + \frac{1}{n}$
+    \begin{enumerate}
+        \item $(u_n)_{n \geq 0}$ est croissante
+        \item $(v_n)_{n \geq 0}$ n'est pas décroissante
+        \item $\lim_{n \to +\infty} (v_n - u_n) = 0$
+    \end{enumerate}
+    Mais on ne peut pas écrire $\displaystyle{\lim_{n \to +\infty} u_n}$
+\end{exemple}
+
+\begin{exemple}
+    Moyenne arithmético-géométrique
+    \\
+    Soit $a, b \geq 0$, $\frac{a + b}{2}$ moyenne arithmétique, $\sqrt{ab}$ moyenne géométrique. 
+    \\
+    On a $\forall a, b \geq 0, \sqrt{ab} \leq \frac{a + b}{2}$.
+    \\
+    En effet : 
+    \begin{align*}
+    &(\sqrt{a} - \sqrt{b})^2 \geq 0 \\
+    &a + b - 2\sqrt{ab} \geq 0 \\
+    &a + b \geq 2\sqrt{ab}
+    \end{align*}
+
+    \begin{equation}\label{moyennes}
+        \frac{a + b}{2} \geq \sqrt{ab}
+    \end{equation}
+    
+    Supposons $a \leq b$ et définissons deux suites $(u_n)_{n \geq 0}$ et $(v_n)_{n \geq 0}$ par $u_0 = a$ et $v_0 = b$. \\
+    \begin{align*}
+    \forall n \in \N,  u_{n + 1} &= \sqrt{u_n v_n} & \ v_{n + 1} &= \frac{u_n + v_n}{2}
+    \end{align*}
+    Montrons que $(u_n)_{n \geq 0}$ et $(v_n)_{n \geq 0}$ convergent vers la même limite à l'aide du théorème des suites adjacentes.
+    Remarquons que $\forall n \in \N$
+    \begin{align*}
+        u_n \leq v_n
+    \end{align*}
+    Cela est vrai si $n = 0$ car $a < b$
+    Si $n > 0$ en appliquant (\ref{moyennes}) a $u_{n-1}$ et $v_{n-1}$ \\
+    Vérifions que $u_n$ est croissante, puis que $v_n$ est croissante et que $(v_n - u_n) \xrightarrow[n \to +\infty]{}  0$
+    \begin{enumerate}
+        \item Soit $n \in \N$
+        \begin{align*}
+            u_{n+1} - u_n &= \sqrt{u_nv_n} - u_n \\
+                          &= \sqrt{u_n} \left( \sqrt{v_n} - \sqrt{u_n} \right) \geq 0
+        \end{align*}
+        Car $v_n \geq u_n$. $(u_n)$ est donc croissante
+        \item Soit $n \in \N$
+        \begin{align*}
+            v_{n+1} - v_n &= \frac{u_n + v_n}{2} - v_n \\
+                          &= \frac{u_n - v_n}{2} \leq 0
+        \end{align*}
+        Car $v_n \geq u_n$. $(v_n)$ est donc décroissante
+        \item 
+        Soit $n \in \N$
+        \begin{align*}
+            v_{n+1} - u_{n+1} &\leq v_{n+1} - u_n \text{ car } u_n \leq u_{n+1} \\
+                              &\leq \frac{u_n+v_n}{2} - u_n \\
+                              &\leq \frac{v_n - u_n}{2}
+        \end{align*}
+        Montrons par récurrence sur $n$ la propriété 
+        \begin{equation*}
+            P_n = "v_n - u_n \leq \frac{v_0 - u_0}{2^n}"
+        \end{equation*}
+        \begin{itemize}
+            \item $P_0$ est vraie
+            \item Supposons que $P_n$ vraie pour un entier n.
+            Alors :
+            \begin{align*}
+                v_{n+1} - u_{n+1} \leq \frac{v_n - u_n}{2} \leq \frac{\frac{v_0 - u_0}{2^n}}{2} = \frac{v_0 - u_0}{2^{n+1}}
+            \end{align*}
+        \end{itemize}
+
+        On a donc, $\forall n \in \N$
+        \begin{align*}
+            0 \leq v_n u_n \leq \frac{v_0 - u_0}{2} = \frac{b - a}{2}
+        \end{align*}
+        Comme 
+        \begin{align*}
+            \lim_{n \to +\infty} 0 = \lim_{n \to +\infty} \frac{b - a}{2} = 0
+        \end{align*}
+        par le théorème des gendarmes, on a :
+        \begin{equation*}
+            (v_n - u_n) \xrightarrow[n \to +\infty]{} 0
+        \end{equation*}
+        Par le théorème des suites adjacentes, $(u_n)$ et $(v_n)$ convergent vers la même limite.
+    \end{enumerate}
+\end{exemple}
+\clearpage
+\section{Suites extraites}
+\textbf{Principe :} On part d'une suite $(u_n)_{n \geq 0}$ et on ne garde que certains des termes (en nombre infini) pour former une nouvelle suite qu'on appelle suite extraite de $(u_n)_{n\geq 0}$
+
+\begin{exemple}~ 
+    \begin{itemize}
+        \item $(u_{2n})_{n \geq 0}$ est une sous-suite/suite-extraite de $(u_n)_{n \geq 0}$
+        \item $(u_{2n+1})_{n \geq 0}$ aussi
+        \item $(u_{3^n})_{n \geq 0}$ l'est également
+    \end{itemize}
+\end{exemple}
+
+\begin{graybox}
+    \begin{definition}[Extraction]
+Une \textbf{extraction} est une fonction $\varphi : \N \to \N$ qui est strictement croissante. 
+\end{definition}
+\end{graybox}
+
+\begin{graybox}
+    \begin{definition}[Suite extraite]
+Une \textbf{suite extraite} ou une \textbf{sous-suite} d'une suite $(u_n)_{n \geq 0}$ est une suite de la forme $(u_{\varphi(n)})_{n \geq 0}$ où $\varphi$ est une extraction. 
+\end{definition}
+\end{graybox}
+
+\begin{graybox}
+    \begin{proposition}[Propriétés]
+    Soit $(u_{\varphi(n)})_{n \geq 0}$ une sous-suite de $(u_n)_{n \geq 0}$
+    \begin{itemize}
+        \item Si $(u_n)_{n \geq 0}$ est croissante, alors $(u_{\varphi(n)})_{n \geq 0}$ aussi.
+        \item Si $(u_n)_{n \geq 0}$ est décroissante, alors $(u_{\varphi(n)})_{n \geq 0}$ aussi.
+        \item Si $(u_n)_{n \geq 0}$ est majorée, alors $(u_{\varphi(n)})_{n \geq 0}$ aussi.
+        \item Si $(u_n)_{n \geq 0}$ est minorée, alors $(u_{\varphi(n)})_{n \geq 0}$ aussi.
+        \item Si $(u_n)_{n \geq 0}$ est converge vers $\ell$, alors $(u_{\varphi(n)})_{n \geq 0}$ aussi.
+    \end{itemize}
+\end{proposition} 
+\end{graybox}
+
+\begin{remarque}[Important]
+    Même si $(u_n)$ ne converge pas, il se peut que des sous-suites convergent.
+\end{remarque}
+
+\begin{exemple}
+    $u_n = (-1)^n$
+    \begin{itemize}
+        \item $u_{2n} = 1$ donc la sous-suite $(u_{2n})_{n \geq 0}$ converge vers 1
+        \item $u_{2n+1} = -1$ donc la sous-suite $(u_{2n+1})$ converge vers -1
+    \end{itemize}
+    Mais $(u_n)$ ne converge pas car si elle convergeait vers $\ell \in \R$ on aurait
+    \begin{align*}
+        u_{2n} &\xrightarrow[]{} \ell \text{ donc } \ell = 1 \\
+        u_{2n+1} &\xrightarrow[]{} \ell \text{ donc } \ell = -1
+    \end{align*}
+    Ce serait absurde.
+\end{exemple}
+
+\begin{graybox}
+    \begin{proposition}
+    Soit $(u_n)_{n \geq 0}$ une suite, alors :
+    \begin{align*}
+        (u_n)_{n \geq 0} \text{ converge } \iff (u_{2n})_{n \geq 0} \text{ et } (u_{2n+1})_{n \geq 0} \text{ convergent vers la même limite}
+    \end{align*}
+\end{proposition}
+\end{graybox}
+
+\begin{graybox}
+    \begin{theoreme}[Théorème de Ramsey]
+    Toute suite admet une sous-suite monotone.
+\end{theoreme}
+\end{graybox}
+
+\begin{proof}
+    Soit $(u_n)_{n \geq 0}$ une suite. Soit $E = \left\{ n \in \N, \forall m \geq n, u_m \leq u_n \right\}$ \\
+    \underline{1er cas} \\
+    $E$ est fini, donc majoré par un entier N, $\forall n \leq N, n \notin E$ donc $\exists m > n, u_m > u_n$(*)
+    On définit alors par récurrence une extraction $\varphi \colon \N \to \N$
+    en posant $\varphi(0) = N + 1$, puis, étant donnés $\varphi(0) < \varphi(1) < \cdots < \varphi(K)$, on choisit $\varphi(K+1)$ (possible par (*)) tel que 
+    $u_{\varphi(K+1)} > u_{\varphi(K)}$ et la suite extraite $(u_{\varphi(n)})$ est croissante. \\
+    \underline{2e cas} \\
+    $E$ est infini. On pose alors $E = \left\{ \varphi(n) : n \in \N \right\}$ avec $\varphi \colon \N \to \N$
+    
+    \noindent $\forall k \in \N, \varphi(k) \in E$ Comme $\varphi(K+1) > \varphi(K)$, on a (par définition de $E$)
+    \begin{align*}
+        u_{\varphi(K+1)} \leq u_{\varphi(K)}
+    \end{align*}
+    et la sous-suite $(u_{\varphi(n)})_{n \in \N}$ est décroissante 
+\end{proof}
+
+\begin{graybox}
+    \begin{theoreme}[Théorème de Bolzano-Weierstrass]
+    Toute suite bornée admet une sous-suite convergente.
+\end{theoreme}
+\end{graybox}
+
+\begin{proof}
+    Soit $(u_n)_{n \geq 0}$ une suite bornée. D'après le théorème de Ramsey, $(u_n)_{n \geq 0}$ il existe une sous-suite monotone $(u_{\varphi(n)})_{n \geq 0}$. Comme $(u_{\varphi(n)})_{n \geq 0}$ est monotone et bornée, elle converge.
+\end{proof}
+
+\begin{exemple}~ 
+\begin{itemize}
+    \item $u_n = (-1)^n$
+    On a $(u_{2n})$ et $(u_{2n+1})$ qui convergent
+    \item $u_n = \cos(n)$ par le théorème de Bolzano-Weierstrass, elle admet des sous-suites convergentes, mais pas aussi simples à définir
+\end{itemize}
+    
+\end{exemple}
+
+\subsection{Limites infinies}
+\begin{graybox}
+    \begin{definition}
+    Soit $(u_n)_{n \geq 0}$ une suite. On dit que $(u_n)_{n \geq 0}$ tend vers l'infini, si 
+    \begin{align*}
+    \forall A \in \R, \exists N \in \N, \forall n \geq N, u_n \geq A
+    \end{align*}
+    On écrit alors 
+    \begin{align*}
+    \lim_{n \to +\infty} u_n = +\infty \text{ ou } u_n \xrightarrow[n \to +\infty]{} +\infty
+    \end{align*}
+\end{definition}
+\end{graybox}
+
+\begin{remarque}
+    Ne pas utiliser le mot "converger" pour une limite infinie. Il est réservé aux limites finies. On parlera de "diverger" vers l'infini.
+\end{remarque}
+
+\begin{graybox}
+    \begin{definition}
+    On dit que $(u_n)_{n \geq 0}$ tend vers $-\infty$ si 
+    \begin{align*}
+        \forall A \in R, \exists N \in N, \forall n \geq N, u_n \leq A
+    \end{align*}
+\end{definition}
+\end{graybox}
+
+\begin{remarque}
+ Si $(u_n)_{n \geq 0}$ tend vers l'infini, toute sous-suite aussi   
+\end{remarque}
+
+\begin{theoreme}
+    Soit $(u_n)_{n \geq 0}$ une suite croissante. Alors :
+    \begin{itemize}
+        \item ou bien $(u_n)_{n \geq 0}$ converge (vers une limite finie)
+        \item ou bien $(u_n)_{n \geq 0}$ tend vers $+\infty$
+    \end{itemize}
+\end{theoreme}
+
+\begin{proof}~ 
+    \begin{itemize}
+        \item Si $(u_n)$ est majorée, elle converge d'après le théorème de convergence monotone car elle est croissante et majorée.
+        \item Si $(u_n)$ n'est pas majorée, montrons qu'elle tend vers $+\infty$ \\
+        Soit $A$ un réel. \\
+        Comme $(u_n)$ n'est pas majorée, 
+        \begin{align*}
+            \exists N \in \N, u_N \geq A \\
+            \forall n \geq N, u_n \geq u_N \geq A
+        \end{align*}
+        On a montré que :
+        \begin{align*}
+            u_n \xrightarrow[n \to +\infty]{} +\infty
+        \end{align*}
+    \end{itemize}
+\end{proof}
+
+\begin{exemple}
+    Un autre exemple de suite : $u_n = n(-1)^n$. \\
+    La suite $(u_n)_{n \geq 0}$ n'a pas de limite finie ou infinie.
+    \begin{align*}
+        u_{2n} \xrightarrow[n \to +\infty]{} +\infty,\ u_{2n+1} \xrightarrow[n \to +\infty]{} -\infty
+    \end{align*}
+\end{exemple}
