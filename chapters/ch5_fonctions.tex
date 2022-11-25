@@ -1,3 +1,87 @@
 \chapter{Continuité et limites de fonctions}
 
+Soit $I$ un intervalle de $\R$ et $f \colon I \to \R$ une fonction.
+Soit $x_0 \in I$ ou $x_0$ une borne de $I$ (possiblement $\pm \infty$).
+On veut définir ce que veut dire 
+\begin{align*}
+    \lim_{x \to x_0} f(x) = \ell,\ \ell \in \R \text{ ou } \ell = \pm \infty
+\end{align*}
 
+\begin{graybox}
+\begin{definition}[Limite d'une fonction en un point]~ 
+\\
+\textbf{1er cas} \\
+$x_0 \in \R$, $\ell \in \R$ \\
+On dit que $\displaystyle \lim_{x \to x_0} f(x) = \ell$
+\begin{align*}
+    \text{Si } \forall \varepsilon > 0, \exists \delta > 0 \text{ tel que si } |x -x_0| \leq \delta, \text{ alors } |f(x) - \ell| \leq \varepsilon
+\end{align*}
+\textbf{2e cas} \\
+$x_0 \in \R$, $\ell = \pm \infty$ \\
+On dit que $\displaystyle \lim_{x \to x_0} f(x) = +\infty$ 
+\begin{align*}
+    \text{Si } \forall A \in \R, \exists \delta > 0 \text{ tel que si } |x - x_0| \leq \delta \text{ alors } f(x) \geq A
+\end{align*}
+On dit que $\displaystyle \lim_{x \to x_0} f(x) = -\infty$ 
+\begin{align*}
+    \text{Si } \forall A \in \R, \exists \delta > 0 \text{ tel que si } |x - x_0| \leq \delta \text{ alors } f(x) \leq A
+\end{align*}
+\end{definition}
+\end{graybox}
+
+\begin{graybox}
+    \begin{definition}[Limite d'une fonction en l'infini]~
+        \\
+\textbf{1er cas} \\
+$x_0 = \pm \infty,\ \ell \in \R$ \\
+On dit que $\displaystyle \lim_{x \to +\infty} f(x) = \ell $
+\begin{align*}
+    \text{Si } \forall \varepsilon > 0, \exists B \in \R \text{ tel que si } x \geq B \text{ alors } |f(x) - \ell| < \varepsilon
+\end{align*}
+On dit que $\displaystyle \lim_{x \to -\infty} f(x) = \ell $
+\begin{align*}
+    \text{ Si} \forall \varepsilon > 0, \exists B \in \R \text{ tel que si } x \leq B \text{ alors } |f(x) - \ell| \leq \varepsilon
+\end{align*}
+\textbf{2e cas} \\
+$x_0 = \pm \infty$, $\ell = \pm \infty$ \\
+On dit que $\displaystyle \lim_{x \to +\infty} = +\infty$ 
+\begin{align*}
+    \text{Si } \forall A \in \R, \exists B \in \R \text{ tel que si } x \geq B \text{ alors } f(x) \geq A
+\end{align*}
+On dit que $\lim_{x \to +\infty} = -\infty$
+\begin{align*}
+    \text{Si } \forall A \in \R, \exists B \in \R \text{ tel que si } x \geq B \text{ alors } f(x) \leq A
+\end{align*}
+On dit que $\displaystyle \lim_{x \to -\infty} f(x) = +\infty$ 
+\begin{align*}
+    \text{Si } \forall A \in \R, \exists B \in \R \text{ tel que si } x \leq B \text{ alors } f(x) \geq A
+\end{align*}
+on dit que $\displaystyle \lim_{x \to -\infty} f(x) = -\infty$
+\begin{align*}
+    \text{Si } \forall A \in \R, \exists B \in \R \text{ tel que si } x \leq B \text{ alors } f(x) \leq A
+\end{align*}
+
+\end{definition}
+\end{graybox}
+\begin{remarque}
+    Lorsque $\displaystyle \lim_{x \to x_0} f(x) = 
+        \begin{cases}
+            +\infty \\
+            \text{ou} \\
+            -\infty
+        \end{cases}$
+    la droite verticale d'équation $x = x_0$ est une asymptote verticale au graphe de $f$
+\end{remarque}
+
+\begin{remarque}
+    Lorsque $\displaystyle \lim_{x \to x_0} f(x) = \ell \text{ ou } \lim_{x \to x_0} f(x) = \ell$, la droite horizontale d'équation $y = \ell$ une asymptote horizontale au graphe de $f$
+\end{remarque}
+
+\begin{graybox}
+    \begin{theoreme}[Caractérisation séquentielle des limites]
+        Soit $I \subset \R$ un intervalle, $f \colon I \to \R$, $x_0 \in I$ ou une borne de $I$ (éventuellement $\pm \infty$), $\ell \in \R$ ou $\ell = +\infty$ ou $\ell = -\infty$.     
+    \begin{align*}
+        \text{Alors } \lim_{x \to x_0} f(x) = \ell \iff \text{Pour toute suite } (u_n)_{n \in \N} \text{ telle que } \lim_{n \to \infty} u_n = x_0, \text{ on a } \\ \lim_{n \to \infty} f(u_n) = \ell
+    \end{align*}
+    \end{theoreme}
+\end{graybox}

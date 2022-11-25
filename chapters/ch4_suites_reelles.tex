@@ -861,6 +861,7 @@ Une \textbf{suite extraite} ou une \textbf{sous-suite} d'une suite $(u_n)_{n \ge
  Si $(u_n)_{n \geq 0}$ tend vers l'infini, toute sous-suite aussi   
 \end{remarque}
 
+\begin{graybox}
 \begin{theoreme}
     Soit $(u_n)_{n \geq 0}$ une suite croissante. Alors :
     \begin{itemize}
@@ -868,7 +869,7 @@ Une \textbf{suite extraite} ou une \textbf{sous-suite} d'une suite $(u_n)_{n \ge
         \item ou bien $(u_n)_{n \geq 0}$ tend vers $+\infty$
     \end{itemize}
 \end{theoreme}
-
+\end{graybox}
 \begin{proof}~ 
     \begin{itemize}
         \item Si $(u_n)$ est majorée, elle converge d'après le théorème de convergence monotone car elle est croissante et majorée.
@@ -894,6 +895,7 @@ Une \textbf{suite extraite} ou une \textbf{sous-suite} d'une suite $(u_n)_{n \ge
     \end{align*}
 \end{exemple}
 
+\begin{graybox}
 \begin{theoreme}[Théorèmes de comparaison]~ 
     \begin{itemize}
         \item Si $(u_n)_{n \in \N}$ et $(v_n)_{n \in \N}$ vérifient $\forall n \in \N, u_n \leq v_n$ 
@@ -906,7 +908,7 @@ Une \textbf{suite extraite} ou une \textbf{sous-suite} d'une suite $(u_n)_{n \ge
             \end{align*}
     \end{itemize}
 \end{theoreme}
-
+\end{graybox}
 \begin{remarque}[Formes indéterminées des sommes de limites]
 Les résultats pour les limites finies ne s'étendent pas tous aux limites infinies.
 \begin{table}[!h]
@@ -979,12 +981,12 @@ On a :
         $\pm \infty$ et $\pm \infty$ & FI \\
         $0$ et $\pm \infty$ & 0 \\
         $+\infty$ et $0$ & $\begin{cases} 
-                             &+\infty si \forall n, v_n > 0 \\
-                             &-\infty si \forall n, v_n < 0 
+                             &+\infty \text{ si } \forall n, v_n > 0 \\
+                             &-\infty \text{ si } \forall n, v_n < 0 
                             \end{cases}$ \\
         $-\infty$ et $0$ & $\begin{cases}
-                                &-\infty si \forall n, v_n > 0 \\
-                                &+\infty si \forall n, v_n < 0
+                                &-\infty \text{ si } \forall n, v_n > 0 \\
+                                &+\infty \text{ si } \forall n, v_n < 0
                             \end{cases}$
     \end{tabular}
     \caption{Formes indéterminées des quotients de limites}
@@ -1049,6 +1051,7 @@ Ces notations sont très utilisées en informatique
 \end{align*}
 \end{remarque}
 
+\begin{graybox}
 \begin{definition}[Suite de Cauchy]
 C'est un moyen de parler de suites convergentes sans mentionner la limite. \\
 Une suite $(u_n)$ est de Cauchy si :
@@ -1056,5 +1059,4 @@ Une suite $(u_n)$ est de Cauchy si :
     \forall \varepsilon > 0, \exists N \in \N, \forall n_1 \geq N, \forall n_2 \geq N, |u_{n_1} - u_{n_2}| \leq \varepsilon
 \end{align*}
 \end{definition}
-
-
+\end{graybox}
