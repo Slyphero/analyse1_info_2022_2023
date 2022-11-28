@@ -915,13 +915,15 @@ Les résultats pour les limites finies ne s'étendent pas tous aux limites infin
 \centering
 \begin{tabular}{c c}
 HYPOTHESES & CONCLUSION \\
+\hline
 $\lim u_n$ et  $\lim v_n$ & $\lim (u_n + v_n)$ \\
 $\ell \in \R$ et $\ell ' \in \R$ & $\ell + \ell'$ \\
 $\ell \in \R$ et $+\infty$ & $+\infty$ \\
 $\ell \in \R$ et $-\infty$ & $-\infty$ \\
 $+\infty$ et $+\infty$ & $+\infty$ \\
 $-\infty$ et $-\infty$ & $-\infty$ \\
-$-\infty$ et $+\infty$ & FI
+$-\infty$ et $+\infty$ & FI \\
+\hline
 \end{tabular}
 \caption{Formes indéterminées pour les sommes de limites}
 \end{table}
@@ -953,8 +955,9 @@ On a :
 \begin{remarque}[Formes indéterminées des produits des limites]
     \begin{table}[!h]
         \centering
-        \begin{tabular}{c c}
+        \begin{tabular}{cc}
             HYPOTHESES & CONCLUSION \\
+            \hline
             $\lim u_n$ et $\lim v_n$ & $\lim (u_n v_n)$ \\
             $\ell > 0$ et $+\infty$ & $+\infty$ \\
             $\ell < 0$ et $+\infty$ & $-\infty$ \\
@@ -964,7 +967,8 @@ On a :
             $0$ et $-\infty$ & FI \\
             $+\infty$ et $+\infty$ & $+\infty$ \\
             $+\infty$ et $-\infty$ & $-\infty$ \\
-            $-\infty$ et $-\infty$ & $+\infty$
+            $-\infty$ et $-\infty$ & $+\infty$ \\
+            \hline
         \end{tabular}
         \caption{Formes indéterminées des produits de limites}
     \end{table}
@@ -974,8 +978,9 @@ On a :
     Supposons que $\forall n \in \N, v_n \neq 0$
     \begin{table}[!h]
     \centering
-    \begin{tabular}{c c}
+    \begin{tabular}{cc}
         HYPOTHESES & CONCLUSION \\
+        \hline 
         $\lim u_n$ et $\lim v_n$ & $\lim \frac{u_n}{v_n}$ \\
         $0$ et $0$ & FI \\
         $\pm \infty$ et $\pm \infty$ & FI \\
@@ -987,7 +992,8 @@ On a :
         $-\infty$ et $0$ & $\begin{cases}
                                 &-\infty \text{ si } \forall n, v_n > 0 \\
                                 &+\infty \text{ si } \forall n, v_n < 0
-                            \end{cases}$
+                            \end{cases}$ \\
+                            \hline
     \end{tabular}
     \caption{Formes indéterminées des quotients de limites}
 \end{table}
