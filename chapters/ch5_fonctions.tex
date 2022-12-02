@@ -323,6 +323,48 @@ Alors il existe un point $c \in [a, b]$ tel que $f(c) = y$
 \end{theoreme}
 \end{graybox}
 
+\begin{proof}
+On utilise la propriété de la borne supérieure de $\R$. Toute partie non vide majorée $A \subset \R$ admet une borne supérieure $\sup(A)$
+\begin{itemize}
+\item Quitte à changer $f$ en $-f$ et $y$ en $-y$ on peut supposer 
+\begin{align*}
+f(a) \leq y \leq f(b) 
+\end{align*}
+\item Soit $E = \{x \in I \text{ tel que } f(x) \leq y\}$,
+$a \in E$ donc $E$ est non vide,
+$E \subset I$ donc $E$ est majoré donc on peut poser $c = \sup(E)$ \\
+Puisque $c = \sup(E)$, il existe une suite $(c_n)$ d'éléments de $E$ telle que 
+$\lim_{n \to +\infty} c_n = c$ \\
+Comme $f$ est continue, on a 
+\begin{align*}
+\lim_{n \to +\infty} f(c_n) = f(c)
+\end{align*}
+Puisque $c_n \in E$, on a $f(c_n) \leq y$. En passant à la limite, on a 
+\begin{align*}
+f(c) \leq y
+\end{align*}
+Il reste à montrer $f(c) \geq y$
+\begin{itemize}
+\item Si $c = b$, on a bien 
+\begin{align*}
+f(c) = f(b) \leq y
+\end{align*}
+\item Si $c < b$, pour $n$ assez grand, 
+\begin{align*}
+c < \underbrace{c + \frac{1}{n}}_{\substack{\text{pas dans } E,\\ \text{ car } c= \sup(E)}} \leq b
+\end{align*}
+\begin{align*}
+c + \frac{1}{n} \notin E \implies f\left( c + \frac{1}{n} \right) > y
+\end{align*}
+On a $\lim_{n \to +\infty} c + \frac{1}{n} = c$ et $f$ étant continue
+\begin{align*}
+\lim_{n \to +\infty} f\left( c + \frac{1}{n} \right) = f(c)
+\end{align*}
+Comme $f\left(c + \frac{1}{n}\right) > y$, on en déduit en passant à la limite $f(c) \geq y$
+\end{itemize}
+\end{itemize}
+\end{proof}
+
 \begin{exemple}
 $
 f \colon 
@@ -384,4 +426,137 @@ f(0) &= 0 & f(2) &= 4 \\
 f(0) \leq 2 \leq f(2)
 \end{align*}
 Par le théorème des valeurs intermédiaires, il existe un réel $c \in [0, 2]$ tel que $f(c) = 2, c = \sqrt{2}$, mais il n'existe pas de rationnel $c$ te lque $f(c) = 2$
+\end{exemple}
+
+\begin{remarque}
+L'image d'un intervalle par une fonction continue est un intervalle.
+\end{remarque}
+
+\begin{exemple}
+$
+f \colon
+\begin{cases}
+\R &\to \R \\
+x &\mapsto x^2 + 1
+\end{cases}
+$
+\begin{align*}
+f([-1, 4]) =
+\end{align*}
+$f'(x) = 2x$ donc 
+$
+\begin{cases}
+f'(x) \leq 0 \text{ si } x \in [-1, 0] \\
+-f'(x) \geq 0 \text{ si } x \in [0, 4]
+\end{cases}
+$
+\end{exemple}
+
+\section{Limites, continuité et monotonie}
+Les fonctions monotones ont des propriétés spécifiques 
+\begin{graybox}
+\begin{theoreme}[Théorème de la "limite monotone"]
+Soit $I=]a, b[$ avec $a < b$ et $f \colon I \to \R$ croissante.
+\begin{enumerate}
+\item $f$ admet une limite en $b$, qui est finie si et seulement si $f$ est majorée.
+\item $f$ admet une limite en $a$, qui est finie si et seulement si $f$ est minorée.
+\item Pour tout $x_0 \in I$, $f$ a une limite à gauche et à droite en $x_0$
+et 
+\begin{align*}
+\lim_{\substack{x \to x_0 \\ x < x_0}} f(x) \leq f(x_0) \leq \lim_{\substack{x \to x_0 \\ x > x_0}} f(x)
+\end{align*}
+\end{enumerate}
+Enoncé analogue pour $f$ décroissante.
+\end{theoreme}
+\end{graybox}
+
+\begin{graybox}
+\begin{theoreme}[Stricte monotonie et bijectivité]
+Soit $f \colon [a, b] \to \R$ continue
+\begin{itemize}
+\item Si $f$ est strictement croissante, $f \colon [a, b] \to [f(a), f(b)]$ est une bijection.
+\item Si $f$ est strictement décroissante, $f \colon [a, b] \to [f(b), f(a)]$ est une bijection. 
+Ce théorème a été utilisé pour définir par exemple $\arcsin$ car il montre que $\sin \colon \left[-\frac{\pi}{2}\right] \to [-1,1]$ est bijective.
+En effet strictement monotone $\implies$ injective et on montre que $f$ est injective grâce au TVI.
+\end{itemize}
+\end{theoreme}
+\end{graybox}
+
+\begin{exemple}
+$
+f \colon 
+\begin{cases}
+\R &\to \R \\
+x &\mapsto 2x^3 - 9x^2 + 12x - 1
+\end{cases}
+$
+$f$ est continue, 
+\begin{align*}
+f'(x) = 6x^2 - 18x + 12 = 6(x^2 - 3x + 2) = 6(x-1)(x-2)
+\end{align*}
+\begin{align*}
+f(1) &= 2 - 9 + 12 - 1 & f(2) &= 16 - 36 + 24 - 1  \\
+&= 4 & &=3
+\end{align*}
+Si $x \neq 0$, $f(x) = x^3 \left( 2 - \frac{9}{x} + \frac{12}{x^2} - \frac{1}{x^3} \right)$ et donc 
+\begin{align*}
+\lim_{x \to +\infty} f(x) = +\infty \\
+\lim_{x \to -\infty} f(x) = -\infty
+\end{align*}
+Comme $f$ est strictement décroissante sur $[1, 2]$, c'est une bijection de $[1, 2]$ sur $[3, 4]$. Le théorème est également vrai pour un intervalle $]a, b[$ avec $a \in \R \cup \{-\infty\}, b \in \R \cup \{+\infty\}$ si 
+$f \colon ]a, b[ \to \R$ est continue et 
+\begin{itemize}
+\item strictement croissante, c'est une bijection de $]a, b[$ sur $]\lim_{x \to a} f(x), \lim_{x \to b} f(x)[$
+\item strictement décroissante, c'est un bijection de $]a, b[$ sur $]\lim_{x \to b} f(x), \lim_{x \to a} f(x)[$
+\end{itemize}
+Dans l'exemple précédent, $f$ est une bijection de $]-\infty, 1[$ sur $]-\infty, 4[$.
+\end{exemple}
+
+\begin{exemple}
+$
+f \colon
+\begin{cases}
+]0, +\infty[ &\to \R \\
+x &\mapsto \frac{1}{x^2 + x}
+\end{cases}
+$
+$f$ est continue et strictement décroissante car la fonction $x \mapsto x^2 + x$ est strictement croissante sur $]0, +\infty[$
+\begin{align*}
+\lim_{x \to 0^+} f(x) &= +\infty & \lim_{x \to +\infty} f(x) &= 0
+\end{align*}
+donc $f$ est une bijection de $]0, +\infty[$ sur $]0, +\infty[$.
+\end{exemple}
+
+\begin{graybox}
+\begin{theoreme}
+Soit $I$ un intervalle de $\R$ et $f \colon I \to \R$ continue injective.
+\\
+Alors $f$ est strictement monotone, donc bijective.
+\\
+Si on pose $J = f(I)$ , la bijection réciproque $f^{-1} \colon J \to I$ est continue.
+\end{theoreme}
+\end{graybox}
+
+\begin{remarque}
+Dans le théorème précédent, $f^{-1}$ est aussi strictement monotone.
+\end{remarque}
+\section{Fonctions continues sur un segment}
+\begin{remarque}
+Segment = intervalle fermé borné.
+\end{remarque}
+\begin{graybox}
+\begin{theoreme}
+Soient $a < b$ des réels et $f \colon [a, b] \to \R$ une fonction continue. Alors $f$ est bornée sur $[a, b]$ et elle atteint ses bornes.
+\begin{align*}
+\exists n \in \R, \exists M \in \R \text{ tels que } \forall x \in [a, b], m \leq f(x) \leq M \text{ et } \exists x_0 \in [a, b], f(x_0) = m, \exists x_1 \in [a, b], f(x_1) = M
+\end{align*}
+\end{theoreme}
+\end{graybox}
+
+\begin{remarque}
+Il est important de considérer un intervalle fermé.
+\end{remarque}
+
+\begin{exemple}
+La fonction $x \mapsto \frac{1}{x}$ est continue sur $]0, 1[$, mais pas bornée.
 \end{exemple}
