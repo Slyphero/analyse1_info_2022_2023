@@ -540,7 +540,9 @@ Si on pose $J = f(I)$ , la bijection réciproque $f^{-1} \colon J \to I$ est con
 \begin{remarque}
 Dans le théorème précédent, $f^{-1}$ est aussi strictement monotone.
 \end{remarque}
-\section{Fonctions continues sur un segment}
+
+\par \noindent \textbf{Fonctions continues sur un segment}
+
 \begin{remarque}
 Segment = intervalle fermé borné.
 \end{remarque}
@@ -552,11 +554,54 @@ Soient $a < b$ des réels et $f \colon [a, b] \to \R$ une fonction continue. Alo
 \end{align*}
 \end{theoreme}
 \end{graybox}
-
+\par \noindent La preuve repose sur le théorème de Bolzano-Weierstrass.
 \begin{remarque}
 Il est important de considérer un intervalle fermé.
 \end{remarque}
 
 \begin{exemple}
 La fonction $x \mapsto \frac{1}{x}$ est continue sur $]0, 1[$, mais pas bornée.
+\end{exemple}
+
+\par \noindent \textbf{Prolongement par continuité}
+$I \subset \R$ un intervalle, $x_0 \in I$, $f \colon I \backslash \{x_0\} \to \R$.
+\par \noindent On suppose que $\lim_{x \to x_0} f(x) = \ell$ existe. Alors la fonction
+\begin{align*}
+\tilde{f} \colon
+\begin{cases}
+I &\to \R \\
+x &\mapsto
+\begin{cases}
+f(x) \text{ si } x \neq x_0 \\
+\ell \text{ si } x = x_0
+\end{cases}
+\end{cases}
+\end{align*}
+On dit que $f$ est le prolongement par continuité de $f$ en $x_0$.
+
+\begin{exemple}
+Soit 
+$
+f \colon 
+\begin{cases}
+\R^* &\to \R \\
+x &\mapsto \frac{\sin(x)}{x}
+\end{cases}
+$
+continue sur $\R^*$. Peut-on la prolonger par continuité en $0$ ?
+\\
+Pour $x \neq 0$
+\begin{align*}
+\frac{\sin (x)}{x} = \frac{\sin (x) - \sin (0)}{x - 0}
+\end{align*}
+c'est le taux d'accroissement donc $\lim_{x \to 0} \frac{\sin (x)}{x} = \sin' (0) = \cos (0) = 1$.
+On peut donc prolonger $f$ par continuité en posant
+\begin{align*}
+\tilde{f}(x) =
+\begin{cases}
+f(x) \text{ si } x \in \R^* \\
+1 \text{ si } x = 0
+\end{cases} 
+\end{align*}
+La fonction $\tilde{f}$ est continue sur $\R$.
 \end{exemple}
