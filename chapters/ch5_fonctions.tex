@@ -1,5 +1,5 @@
 \chapter{Continuité et limites de fonctions}
-
+\section{Limites}
 Soit $I$ un intervalle de $\R$ et $f \colon I \to \R$ une fonction.
 Soit $x_0 \in I$ ou $x_0$ une borne de $I$ (possiblement $\pm \infty$).
 On veut définir ce que veut dire 
@@ -85,3 +85,181 @@ on dit que $\displaystyle \lim_{x \to -\infty} f(x) = -\infty$
     \end{align*}
     \end{theoreme}
 \end{graybox}
+
+\par Par conséquent, les théorèmes sur les limites de suites ont des analogues immédiats pour les limites de fonctions.
+
+\begin{graybox}
+\begin{theoreme}
+Soit $I$ un intervalle de $\R$.. $f, g, h \colon I \to \R$, $x_0 \in I$ ou une borne de $I$.
+\begin{enumerate}
+\item Si 
+$
+\begin{cases}
+\lim_{x \to x_0} f(x) = \ell_1 \\
+\lim_{x \to x_0} g(x) = \ell_2
+\end{cases}
+$
+alors $\forall a, b \in \R$
+\begin{itemize}
+\item $\lim_{x \to x_0} (af + bg) (x) = a \ell_1 + b \ell_2$
+\item $\lim_{x \to x_0} f(x)g(x) = \ell_1 \ell_2$
+\item Si $g$ ne s'annule pas et $\ell_2 \neq 0$ $\lim_{x \to x_0} \frac{f(x)}{g(x)} = \frac{\ell_1}{\ell_2}$
+\end{itemize}
+\item Si $\lim_{x \to x_0} f(x) = \ell_1, \lim_{x \to x_0}g(x) = \ell_2$ et $\forall x \in I, f(x) \leq g(x)$ alors $\ell_1 \leq \ell_2$
+\item Si $\forall x \in I, f(x) \leq g(x) \leq h(x)$ et si $\lim_{x \to x_0} f(x) = \lim_{x \to x_0} h(x) = \ell$ alors $\lim_{x \to x_0} g(x) = \ell$
+\end{enumerate}
+\end{theoreme}
+\end{graybox}
+
+\begin{exemple}
+Considérons la fonction 
+\begin{align*}
+g : 
+\begin{cases}
+\R^*_+ &\to \R \\
+x &\mapsto \frac{\sin(x)}{x}
+\end{cases}
+\end{align*}
+On a $\forall x > 0$
+\begin{align*}
+-1 \leq \sin(x) \leq 1 \\
+\frac{-1}{x} \leq \frac{\sin(x)}{x} \leq \frac{1}{x}
+\end{align*}
+Comme 
+\begin{align*}
+\lim_{x \to +\infty} \frac{-1}{x} = \lim_{x \to +\infty} \frac{1}{x} = 0
+\end{align*}
+Par théorème des gendarmes 
+\begin{align*}
+\lim_{x \to +\infty} g(x) = 0
+\end{align*}
+\end{exemple}
+
+\begin{graybox}
+\begin{theoreme}[Composition des limites]
+Soient $I, J$ deux intervalles et les fonctions $f\colon I \to J$, $g \colon J \to \R$, $x_0 \in I$ ou une borne de $I$. On suppose 
+\begin{align*}
+&\lim_{x \to x_0} f(x) = y \text{ avec } y \in I \text{ ou avec une borne de } J \\
+&\lim_{y \to z} g(z) = \ell \text{ existe }
+\end{align*}
+Alors 
+\begin{align*}
+\lim_{x \to x_0} g(f(x)) = \ell
+\end{align*} 
+\end{theoreme}
+\end{graybox}
+
+\begin{exemple}
+Soit 
+\begin{align*}
+h \colon 
+\begin{cases}
+\R^*_+ &\to \R \\
+x &\mapsto \sqrt{\frac{3}{x} + 7}
+\end{cases}
+\end{align*}
+On pose $h$ comme étant une composée avec :
+\begin{align*}
+f \colon 
+&\begin{cases}
+\R^*_+ &\to \R \\
+x &\mapsto \frac{3}{x} + 7
+\end{cases}
+&
+g \colon 
+&\begin{cases}
+\R^+ &\to \R^+ \\
+x &\mapsto \sqrt{x}
+\end{cases}
+\end{align*}
+On a 
+\begin{align*}
+&\lim_{x \to +\infty} f(x) &= 7 & \lim_{x \to 7} g(x) &= \sqrt{7} \implies \lim_{x \to +\infty} h(x) = \sqrt{7}
+\end{align*}
+\end{exemple}
+
+\begin{graybox}
+\begin{definition}[Limite à gauche / à droite]
+Soit $I \subset \R$ un intervalle, $x_0 \in I$
+\begin{align*}
+f \colon I \to \R & \ell \in \R \\
+\text{ ou } f \colon I\backslash\{x_0\} \to \R & \text{ ou } \ell = +\infty \text{ ou } \ell = -\infty
+\end{align*}
+On dit que $\ell$ est la limite à gauche de $f$ en $x_0$ 
+\begin{align*}
+\lim_{\substack{x \to x_0 \\  x < x_0}} f(x) = \ell \text{ ou } \lim_{x \to x_0^-} f(x) = \ell
+\end{align*}
+Si la limite de $f_{\mid I \cap ]-\infty, x_0]}$  en $x_0$ vaut $\ell$\\
+Si $\ell \in \R$ cela équivaut à 
+\begin{align*}
+\forall \varepsilon > 0, \exists \delta > 0, x_0 - \delta < x < x_0 \implies |f(x) - \ell| \leq \varepsilon
+\end{align*}
+On dit que $\ell$ est la limite de $f$ en $x_0$,
+\begin{align*}
+\lim_{\substack{x \to x_0 \\ x > x_0}} f(x) = \ell \text{ ou } \lim_{x \to x_0^+} f(x) = \ell
+\end{align*}
+Si la limite de $f_{\mid I \cap ]x_0, +\infty]}$ en $x_0$ vaut $\ell$
+\end{definition}
+\end{graybox}
+
+\begin{remarque}
+$f \colon I \to \R$ et $J \subset I$ 
+\\
+$f_{\mid J} \colon 
+\begin{cases}
+J &\to \R \\
+x &\mapsto f(x)
+\end{cases}
+$
+est la restriction de $f$ à $J$.
+\end{remarque}
+
+\par \noindent Soit $I$ un intervalle, $x_0 \in I$ (pas une borne)
+\begin{itemize}
+\item Si $f \colon I \to \R$, alors 
+\begin{align*}
+\lim_{x \to x_0} f(x) = \ell \iff \lim_{x \to x_0 \newline x < x_0} f(x) = f(x_0) = \lim_{\substack{x \to x_0 \\ x > x_0}} f(x) = \ell
+\end{align*}
+\item Si $f \colon I \to \R$, alors 
+\begin{align*}
+\lim_{x \to x_0} f(x) = \ell \iff \lim_{x \to x_0 \newline x < x_0} f(x) = \lim_{\substack{x \to x_0 \\ x > x_0}} f(x) = \ell
+\end{align*}
+\end{itemize}
+
+\section{Continuité}
+\begin{graybox}
+\begin{definition}
+Soit $I$ un intervalle, $x_0 \in I$, $f \colon I \to \R$
+\begin{itemize}
+\item On dit que $f$ est continue en $x_0$ si 
+\begin{align*}
+\lim_{x \to x_0} f(x) = f(x_0)
+\end{align*}
+Avec les quantificateurs, on a :
+\begin{align*}
+f \text{ continue } \iff \forall \varepsilon > 0, \exists \delta > 0, si x \in I \text{ vérifie } |x - x_0 | \leq \delta \text{ alors } |f(x) - f(x_0| \leq \varepsilon
+\end{align*}
+\item On dit que $f$ est continue sur $I$ si elle est continue en tout point de I.
+\begin{align*}
+\forall x_0 \in I, \forall \varepsilon > 0, \exists \delta > 0, \text{ si } x \in I \text{ vérifie } |x - x_0| \leq \delta \text{ alors } |f(x) - f(x_0| \leq \varepsilon
+\end{align*}
+\item On dit que $f$ est continue à gauche en $x_0$ si 
+\begin{align*}
+\lim_{\substack{x \to x_0 \\ x < x_0}} f(x) = f(x_0)
+\end{align*}
+et continue à droite en $x_0$ si
+\begin{align*}
+\lim_{\substack{x \to x_0 \\ x > x_0}} f(x) = f(x_0)
+\end{align*}
+Ainsi $f$ est continue en $x_0$ si et seulement si elle est continue à gauche et à droite de $x_0$
+\end{itemize}
+\end{definition} 
+\end{graybox}
+
+\begin{exemple}
+$E \colon \R \to \Z$ partie entière.
+\begin{itemize}
+\item Si $x_0 \in \R \backslash \Z$, $E$ est continue en $x_0$
+\item Si $x_0 \in \Z$, $E$ est continue à droite en $x_0$ mais pas continue à gauche en $x_0$
+\end{itemize}
+\end{exemple}
