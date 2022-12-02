@@ -263,3 +263,78 @@ $E \colon \R \to \Z$ partie entière.
 \item Si $x_0 \in \Z$, $E$ est continue à droite en $x_0$ mais pas continue à gauche en $x_0$
 \end{itemize}
 \end{exemple}
+
+\begin{exemple}
+$ 
+f \colon 
+\begin{cases}
+\R &\to \R \\
+x &\mapsto 
+\begin{cases}
+1 \text{ si } x \in \Q \\
+0 \text{ si } x \notin \Q
+\end{cases}
+\end{cases}
+$
+cette fonction n'est continue en aucun point.
+\end{exemple}
+
+\begin{remarque}
+Les fonctions usuelles 
+\begin{itemize}
+\item $\exp$
+\item $\ln$
+\item $\cos$
+\item $\sin$
+\item $\tan$
+\item $\arcsin$
+\item $\arccos$
+\item $\arctan$
+\item $\cosh$
+\item $\sinh$
+\item $\tanh$
+\item $\sqrt{x}$
+\end{itemize}
+sont continues dans leurs domaines de définition.
+\end{remarque}
+
+\begin{graybox}
+\begin{theoreme}[Opérations sur les fonctions continues]
+La somme, le produit, la composition, le quotient de deux fonctions continues est une fonction continue.
+\end{theoreme}
+\end{graybox}
+
+\begin{exemple}
+$
+f \colon 
+\begin{cases}
+\R &\to \R \\
+x &\mapsto \sin(x^2 - 3)\exp(2\cos(x - 1))
+\end{cases}
+$
+est continue comme produit de fonctions continues.
+\end{exemple}
+
+\begin{graybox}
+\begin{theoreme}[Théorème des valeurs intermédiaires]
+Soit $I = [a, b]$ un intervalle de $\R$ avec $a < b$ et $f \colon I \to \R$ une fonction continue.
+Soit $y \in \R$ tel que $f(a) \leq y \leq f(b)$ ou $f(b) \leq y \leq f(a)$.
+Alors il existe un point $c \in [a, b]$ tel que $f(c) = y$
+\end{theoreme}
+\end{graybox}
+
+\begin{exemple}
+$
+f \colon 
+\begin{cases}
+\R &\to \R \\
+x &\mapsto x^4 + x^2 - 6
+\end{cases}
+$
+On veut montrer que $f$ s'annule sur $[0,2]$ $f$ est continue.
+\\
+\begin{align*}
+f(0) &= -6 & f(2) &= 14
+\end{align*}
+Comme $-6 \leq 0 \leq 14$, par le TVI, il existe $c \in [0,2]$ tel que $f(c) = 0$
+\end{exemple}
