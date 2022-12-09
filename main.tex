@@ -24,6 +24,16 @@
 
 \usepackage{verbatim}
 
+\usepackage{titlesec}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Liberation Serif}
+\setsansfont{Liberation Sans}
+
+\titleformat*{\section}{\Large\bfseries\sffamily\color{red}}
+\titleformat*{\subsection}{\large\bfseries\sffamily\color{blue}}
+\titleformat*{\subsubsection}{\sffamily\color{black}}
+
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 
@@ -44,7 +54,7 @@
 
 \usepackage[breakable, listings, skins, hooks]{tcolorbox}
 
-\newtcolorbox{graybox}{breakable, enhanced, colframe=white, colback=gray!20!white, arc=0mm, outer arc=0mm}
+\newtcolorbox{graybox}{breakable, enhanced, frame hidden, colframe=black, borderline west={2pt}{0pt}, colback=gray!15!white, arc=0mm, outer arc=0mm}
 
 % Code tiré de TeX StackExchange - Début
 \makeatletter
