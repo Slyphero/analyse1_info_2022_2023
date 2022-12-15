@@ -821,9 +821,12 @@
 
 \begin{graybox}
 	\begin{theoreme}[Croissances comparées]
-		$\forall n \in \N$
+		$\forall (a, b) \in (\R^*_+)^2$
 		\[\lim_{x \to +\infty} \frac{\exp{(ax)}}{x^b} = + \infty \]
-		\[\lim_{x \to +\infty} \frac{x^b}{(\ln{x})^c} = +\infty\] 
-		\[\lim_{x \to +\infty} \frac{\exp{(ax)}}{(\ln{x})^c} = +\infty\]
+		\[\lim_{x \to +\infty} \frac{x^a}{(\ln{x})^b} = +\infty\] 
+		\[\lim_{x \to +\infty} \frac{\exp{(ax)}}{(\ln{x})^b} = +\infty\]
+		\[ \lim_{x \to -\infty} |x|^b \exp{(ax)} = 0 \]
+		\[ \lim_{x \to +\infty} \frac{(\ln{(x)})^b}{x^a} = 0 \]
+		\[ \lim_{x \to 0^{+}} x^a |\ln{(x)}|^b = 0 \]
 	\end{theoreme}
 \end{graybox}
